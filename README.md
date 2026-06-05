@@ -2,7 +2,7 @@ If you find TBD-VLA useful for your work please cite:
 ```
 @article{lee2026tbdvla,
       title={TBD-VLA: Temporal Block Diffusion Vision Language Action Model},
-      author={Lee, Sung-Wook and Kuo, Yen-Ling},
+      author={Lee, Sung-Wook and Kang, Xuhui and Kuo, Yen-Ling},
       journal={arXiv preprint},
       year={2026}
 }

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Contrastive Learning via Action Sequence Supervision for Robot Manipulation">
-  <meta name="keywords" content="Robot Representation Learning, Contrastive Learning, Action Sequence Modeling">
+        content="TBD-VLA: Temporal Block Diffusion Vision Language Action Model">
+  <meta name="keywords" content="Vision Language Action Model, Discrete Diffusion, Block Diffusion, Robot Manipulation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CLASS: Contrastive Learning via Action Sequence Supervision for Robot Manipulation</title>
+  <title>TBD-VLA: Temporal Block Diffusion Vision Language Action Model</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -32,13 +32,22 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/robot_class.svg">
+  <link rel="icon" href="./static/images/symbol.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    .tbd-table { font-size: 0.85rem; }
+    .tbd-table td, .tbd-table th { text-align: center; vertical-align: middle; }
+    .tbd-table td.is-left, .tbd-table th.is-left { text-align: left; }
+    .tbd-best { font-weight: 700; }
+    .tbd-second { text-decoration: underline; }
+    .table-caption { font-size: 0.95rem; color: #555; margin-top: 0.5rem; }
+  </style>
 </head>
 <body>
 
@@ -48,33 +57,26 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title" style="color: #198b60a8">	CLASS: Contrastive Learning via Action Sequence Supervision for Robot Manipulation</h1>
-<div class="publication-info">
-    <span class="publication-name" style="font-size: 1.4em; color: #db5252">	Conference on Robot Learning (CoRL) 2025 </span>
-    <img src="https://flagcdn.com/24x18/kr.png" alt="South Korea" style="width: 24px; height: 18px;">
-  </div>
+          <h1 class="title is-1 publication-title" style="color: #2a5fa8">TBD-VLA: Temporal Block Diffusion Vision Language Action Model</h1>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="">Sung-Wook Lee</a><sup>1</sup>,</span>
             <span class="author-block">
-              <a href="">Xuhui Kang</a><sup>1</sup>,</span>
+              <a href="">Xuhui Kang</a><sup>1</sup></span>
             <span class="author-block">
-              <a href="">Brandon Yang</a><sup>1</sup>,</span>
-            <span class="author-block">
-              <a href="">Yen-Ling Kuo</a><sup>1</sup>,</span>
-            </span>
+              <a href="">Yen-Ling Kuo</a><sup>1</sup></span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Virginia,</span>
+            <span class="author-block"><sup>1</sup>University of Virginia</span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2508.01600"
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -83,7 +85,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2508.01600"
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -91,34 +93,24 @@
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- OpenReview Link. -->
-              <span class="link-block">
-                <a href="https://openreview.net/forum?id=9f3klkpa4y"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file"></i>
-                  </span>
-                  <span>OpenReview</span>
-                  </a>
-              </span>
-              <!-- Video Link.
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/sean1295/CLASS/tree/main"
+                <a href="#"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code</span>
+                  <span>Code (Coming Soon)</span>
+                  </a>
+              </span>
+              <!-- Hugging Face Weights Link. -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      🤗
+                  </span>
+                  <span>Weights (Coming Soon)</span>
                   </a>
               </span>
             </div>
@@ -138,25 +130,22 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Recent advances in Behavior Cloning (BC) have led to strong performance in 
-            robotic manipulation, driven by expressive models, sequence modeling
-            of actions, and large-scale demonstration data. However, BC faces significant
-            challenges when applied to heterogeneous datasets, such as visual shift with 
-            different camera poses or object appearances, where performance degrades despite the
-            benefits of learning at scale. This stems from BC’s tendency to overfit individual
-            demonstrations rather than capture shared structure, limiting generalization. To
-            address this, we introduce Contrastive Learning via Action Sequence Supervision
-            (CLASS), a method for learning behavioral representations from demonstrations
-            using supervised contrastive learning. CLASS leverages weak supervision from
-            similar action sequences identified via Dynamic Time Warping (DTW) and opti-
-            mizes a soft InfoNCE loss with similarity-weighted positive pairs. We evaluate
-            CLASS on 5 simulation benchmarks and 3 real-world tasks to achieve competitive 
-            results using retrieval-based control with representations only. Most notably,
-            for downstream policy learning under significant visual shifts, Diffusion Policy
-            with CLASS pre-training achieves an average success rate of 75%, while all other
-            baseline methods fail to perform competitively.
-          </p>
-
+            Discrete Vision-Language-Action (VLA) models typically formulate action generation as
+            next-token prediction over discretized action spaces, conditioning each token
+            autoregressively on prior context. While effective, this paradigm incurs high inference
+            latency and largely ignores the temporal structure inherent in action trajectories.
+            Recent efforts introduce parallel decoding to improve efficiency, enabling faster
+            inference, but lack explicit mechanisms for modeling token dependencies.
+            We introduce <b>TBD-VLA</b>, a discrete token-based VLA framework that incorporates
+            <b>block diffusion</b> to enable temporal action generation. We partition action
+            sequences into temporal blocks and perform masked discrete diffusion within each block,
+            while maintaining autoregressive generation across blocks. This design unifies temporal
+            autoregression and parallel action decoding, achieving both strong temporal coherence and
+            improved inference speed. In addition, the explicit temporal modeling enables asynchronous
+            execution of action chunks (e.g., Real-Time Chunking) via temporal in-painting. TBD-VLA
+            significantly outperforms prior VLA approaches in both simulation and real-world
+            manipulation tasks, offering a scalable path toward fast, temporally aware, discrete VLA
+            models.
           </p>
         </div>
       </div>
@@ -164,267 +153,1181 @@
   </div>
 </section>
 
+
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%" style="pointer-events: none;">
-        <source src="./static/videos/meme.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-      </h2>
+      <h2 class="title is-3">Overview</h2>
+      <div class="content has-text-centered">
+        <img src="./static/images/main.png"
+             alt="Overview of TBD-VLA"
+             width="80%">
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          <b>Overview of Temporal Block Diffusion Vision Language Action (TBD-VLA) model.</b>
+          TBD-VLA formulates action sequence generation as block discrete diffusion, which
+          incorporates autoregression and discrete diffusion into a single framework.
+          At inference time, action tokens are decoded in parallel within blocks and
+          autoregressively between blocks. KV caching for the prefix further accelerates inference.
+          TBD-VLA achieves SOTA results on multiple benchmarks in simulation and the
+          real-world while retaining a competitive inference speed.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
 
-<section class="hero teaser">
+<section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3">Overview</h2>        
-    <div class="hero-body">
-      <video id="teaser" autoplay controls muted playsinline height="100%">
-        <source src="./static/videos/overview.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-      </h2>
+    <h2 class="title is-3">Method</h2>
+    <div class="content has-text-justified">
+      <p>
+        TBD-VLA represents actions as discrete tokens and factorizes the action-sequence likelihood
+        over <b>temporal action blocks</b>. Within a block, tokens are decoded in parallel via masked
+        discrete diffusion; across blocks, generation is autoregressive. This combines the efficiency
+        of parallel decoding with explicit temporal-level autoregression.
+      </p>
     </div>
-  </div>
-</section>
 
-
-</section>
-  <div class="container is-max-desktop">
-    <h2 class="title is-4">Limitations of Behavior Cloning</h2>        
     <div class="content has-text-centered">
-      <img src="./static/images/main.png"
-          alt="Description of your image"
-          width="99%">
+      <img src="./static/images/train.png"
+           alt="Training for TBD-VLA"
+           width="96%">
     </div>
     <div class="content has-text-justified">
       <p>
-        <b>Comparison between Behavior Cloning (BC) and Contrastive Learning via Action Sequence Supervision (CLASS).</b>
-        <b>(A)</b> With homogeneous demonstrations with consistent visual
-        conditions, BC learns a compact representation with high transferability. <b>(B)</b> With heterogeneous
-        demonstrations such as varying viewpoints, BC overfits to individual state-action pairs and generalizes 
-        poorly. <b>(C)</b> CLASS addresses this by attracting states with similar action sequences and
-        repelling those with dissimilar ones, with a soft supervised contrastive learning objective to learn
-        more robust and composable representations.
+        <b>Training for TBD-VLA.</b>
+        <b>(A) Temporal-level token shift.</b> To match the VLM backbone's autoregressive
+        next-token-prediction objective, we shift the prediction target at the temporal level: the
+        logits for the current action block are generated from the prior block. This bridges the gap
+        between the self-reconstructive formulation of discrete diffusion and next-token prediction.
+        <b>(B) Block-level attention masking.</b> A doubled-layout trick processes the clean action
+        sequence and the partially masked (corrupt) action blocks in parallel under a custom attention
+        mask that shares RoPE positions, parallelizing learning across blocks in a single pass and
+        substantially accelerating training.
       </p>
     </div>
-      </div>
+
+    <div class="content has-text-justified">
+      <p><b>Inference.</b> TBD-VLA combines several design choices for fast, temporally coherent
+      decoding:</p>
+      <ul>
+        <li><b>Decoding as needed.</b> Only the blocks required for execution are generated, reducing
+        the number of denoising steps.</li>
+        <li><b>Prefix KV cache.</b> Visual/prompt tokens and previously generated blocks are cached,
+        avoiding redundant computation across denoising steps.</li>
+        <li><b>Expectation sampling.</b> Each scalar action component is decoded from the full
+        predicted token distribution rather than the single most-likely token, providing a
+        finer-grained decoding signal.</li>
+        <li><b>Real-Time Chunking (RTC).</b> Future actions are generated asynchronously while current
+        actions execute, using a hard in-painting strategy that aligns with TBD-VLA's masked
+        block-diffusion training objective.</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
+
+<!-- ============================ BLOCK DIFFUSION GENERATION ANIMATION ============================ -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Generation Process</h2>
+    <div class="content has-text-justified">
+      <p>
+        TBD-VLA generates the action sequence <b>autoregressively between temporal blocks</b>, while the
+        tokens are <b>unmasked in parallel within each block</b> over a few discrete-diffusion
+        steps. The most confident tokens are unmasked first. Each block conditions on the clean tokens of all previously generated blocks, giving the
+        model explicit temporal structure while keeping decoding fast.
+      </p>
+    </div>
+
+    <div class="bd-wrap">
+      <div class="bd-controls">
+        <label class="bd-ctrl">
+          <span>Temporal block size <i>m</i></span>
+          <select id="bd-m">
+            <option value="2">2</option>
+            <option value="4" selected>4</option>
+            <option value="8">8</option>
+          </select>
+        </label>
+        <label class="bd-ctrl">
+          <span>Diffusion steps <i>n<sub>d</sub></i></span>
+          <select id="bd-nd">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="bd-stage">
+        <!-- Conditioning prefix -->
+        <div class="bd-prefix">
+          <div class="bd-prefix-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prefix</div>
+          <div class="bd-chip bd-vision">Vision</div>
+          <div class="bd-chip bd-lang">Language</div>
+          <div class="bd-chip bd-state">State</div>
+        </div>
+
+        <div class="bd-arrow">&#8594;</div>
+
+        <!-- Action token grid -->
+        <div class="bd-gridbox">
+          <div class="bd-axis-y">action&nbsp;dim</div>
+          <div class="bd-gridcol">
+            <div id="bd-grid" class="bd-grid"></div>
+            <div id="bd-blocklabels" class="bd-blocklabels"></div>
+            <div class="bd-axis-x">
+              <span class="bd-ar-arrow">autoregressive across blocks &#8594;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bd-footer">
+        <div id="bd-status" class="bd-status">&nbsp;</div>
+        <div class="bd-legend">
+          <span class="bd-legend-item"><span class="bd-swatch bd-sw-masked"></span> masked <code>[MASK]</code></span>
+          <span class="bd-legend-item"><span class="bd-swatch bd-sw-decoded"></span> decoded action token</span>
+          <span class="bd-legend-item"><span class="bd-swatch bd-sw-active"></span> active block (parallel denoise)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content has-text-justified" style="margin-top: 0.8rem;">
+      <p style="font-size: 0.95rem; color:#555;">
+        The grid shows action tokens laid out as <b>action dimension</b> (rows) &times; <b>time</b>
+        (columns), partitioned into temporal blocks of size <i>m</i>. Within a block, masked tokens are
+        revealed in parallel over <i>n<sub>d</sub></i> diffusion steps (high-confidence tokens first);
+        once a block is complete it is frozen and the next block is decoded conditioned on it.
+      </p>
+    </div>
+  </div>
+</section>
 
 <style>
-.homogeneous { color: rgba(98, 160, 220); }
-.heterogeneous { color: rgb(255, 128, 10); }
+  .bd-wrap {
+    background: #f7f9fc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    overflow-x: auto;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  .bd-stage {
+    display: flex;
+    align-items: flex-start;   /* align prefix/arrow to the grid's top */
+    justify-content: center;
+    gap: 1rem;
+    min-width: 640px;
+  }
+  .bd-prefix {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: stretch;
+    justify-content: center;   /* center chips against the grid height */
+    height: 158px;             /* = 7 rows * 20px + 6 gaps * 3px (grid height) */
+  }
+  .bd-prefix-title {
+    position: absolute;        /* lifted out of flow so it doesn't shift chips */
+    top: -18px;
+    left: 0;
+    right: 0;
+    font-size: 0.72rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+  .bd-chip {
+    font-size: 0.78rem;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .bd-vision { background: #2f9e6f; }
+  .bd-lang   { background: #7e57c2; }
+  .bd-state  { background: #e08a2e; }
+  .bd-arrow {
+    font-size: 1.8rem;
+    color: #94a3b8;
+    height: 158px;             /* match grid height so the arrow centers on it */
+    display: flex;
+    align-items: center;
+  }
+  .bd-gridbox { display: flex; align-items: flex-start; gap: 8px; }
+  .bd-axis-y { height: 158px; display: flex; align-items: center; justify-content: center; }
+  .bd-axis-y {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 0.72rem;
+    color: #888;
+    letter-spacing: 0.05em;
+  }
+  .bd-gridcol { display: flex; flex-direction: column; gap: 4px; }
+  .bd-grid {
+    display: grid;
+    gap: 3px;
+  }
+  .bd-cell {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    transition: background 0.35s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .bd-cell.masked {
+    background: repeating-linear-gradient(45deg, #cbd3dd, #cbd3dd 3px, #dde3ea 3px, #dde3ea 6px);
+  }
+  .bd-cell.decoded { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35); }
+  .bd-cell.in-active {
+    box-shadow: 0 0 0 2px #f3a712, 0 0 6px rgba(243,167,18,0.6);
+    transform: scale(1.06);
+    z-index: 1;
+  }
+  .bd-blocklabels {
+    display: grid;
+    gap: 3px;
+    font-size: 0.72rem;
+    color: #64748b;
+    text-align: center;
+  }
+  .bd-blocklabels .bd-blabel {
+    border-top: 2px solid #cbd5e1;
+    padding-top: 2px;
+  }
+  .bd-blocklabels .bd-blabel .bd-tlabel {
+    display: block;
+    font-size: 0.66rem;
+    color: #94a3b8;
+    font-style: italic;
+  }
+  .bd-blocklabels .bd-blabel.active { color: #b8780c; border-top-color: #f3a712; font-weight: 700; }
+  .bd-blocklabels .bd-blabel.active .bd-tlabel { color: #c79233; }
+  .bd-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+  }
+  .bd-ctrl {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #475569;
+  }
+  .bd-ctrl select {
+    font-size: 0.85rem;
+    padding: 3px 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    color: #334155;
+    cursor: pointer;
+  }
+  .bd-axis-x { text-align: center; margin-top: 4px; }
+  .bd-ar-arrow { font-size: 0.78rem; color: #888; letter-spacing: 0.03em; }
+  .bd-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 1.1rem;
+    min-width: 640px;
+  }
+  .bd-status {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #334155;
+    font-family: 'Noto Sans', monospace;
+  }
+  .bd-legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: #475569; }
+  .bd-legend-item { display: inline-flex; align-items: center; gap: 6px; }
+  .bd-swatch { width: 16px; height: 16px; border-radius: 4px; display: inline-block; }
+  .bd-sw-masked { background: repeating-linear-gradient(45deg, #cbd3dd, #cbd3dd 3px, #dde3ea 3px, #dde3ea 6px); }
+  .bd-sw-decoded { background: hsl(205, 65%, 55%); }
+  .bd-sw-active { background: #fff; box-shadow: 0 0 0 2px #f3a712; }
 </style>
 
-<br><br>
-</section>
+<script>
+(function () {
+  // ── TBD-VLA generation-process animation ───────────────────────────────
+  var D_A = 7;    // action dimensions (rows)
+  var H_P = 16;   // prediction horizon (columns)
+  var M   = 4;    // temporal block size   (toggle)
+  var N_D = 2;    // diffusion steps/block  (toggle)
+
+  var grid    = document.getElementById('bd-grid');
+  var labels  = document.getElementById('bd-blocklabels');
+  var status  = document.getElementById('bd-status');
+  var selM    = document.getElementById('bd-m');
+  var selND   = document.getElementById('bd-nd');
+  if (!grid) return;
+
+  // Static grid of cells (rows × columns never change)
+  grid.style.gridTemplateColumns = 'repeat(' + H_P + ', 20px)';
+  var cells = [];
+  for (var r = 0; r < D_A; r++) {
+    for (var c = 0; c < H_P; c++) {
+      var cell = document.createElement('div');
+      cell.className = 'bd-cell masked';
+      grid.appendChild(cell);
+      cells.push(cell);
+    }
+  }
+  function cellAt(r, c) { return cells[r * H_P + c]; }
+
+  var blabels = [];
+  var nBlocks, frames, idx, timer;
+
+  function colorFor() {
+    var L = 40 + Math.floor(Math.random() * 32);
+    var Hh = 195 + Math.floor(Math.random() * 35);
+    return 'hsl(' + Hh + ', 62%, ' + L + '%)';
+  }
+
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  // Rebuild block labels (with per-block start-time sublabel) for current M
+  function buildLabels() {
+    labels.innerHTML = '';
+    blabels = [];
+    var blockW = M * 20 + (M - 1) * 3;
+    labels.style.gridTemplateColumns = 'repeat(' + nBlocks + ', ' + blockW + 'px)';
+    for (var k = 0; k < nBlocks; k++) {
+      var l = document.createElement('div');
+      l.className = 'bd-blabel';
+      l.innerHTML = 'Block ' + k + '<span class="bd-tlabel">t = ' + (k * M) + '~' + (k * M + M - 1) + '</span>';
+      labels.appendChild(l);
+      blabels.push(l);
+    }
+  }
+
+  function buildSchedule() {
+    var f = [];
+    f.push({ active: -1, decode: [], status: 'All action tokens masked' });
+    for (var k = 0; k < nBlocks; k++) {
+      var blockCells = [];
+      for (var r = 0; r < D_A; r++)
+        for (var c = k * M; c < (k + 1) * M; c++)
+          blockCells.push([r, c]);
+      shuffle(blockCells);
+      var total = blockCells.length;
+      var steps = Math.min(N_D, total);
+      // Spread tokens as evenly as possible, giving the extra (remainder)
+      // tokens to the LATER steps so earlier steps decode fewer tokens
+      // (e.g. 14 tokens over 4 steps -> 3, 3, 4, 4).
+      var base = Math.floor(total / steps);
+      var rem = total - base * steps;   // # of later steps that get +1
+      var cursor = 0;
+      for (var s = 0; s < steps; s++) {
+        var count = base + (s >= steps - rem ? 1 : 0);
+        var chunk = blockCells.slice(cursor, cursor + count);
+        cursor += count;
+        if (!chunk.length) continue;
+        f.push({
+          active: k,
+          decode: chunk,
+          status: 'Decoding Block ' + k + '  —  diffusion step ' + (s + 1) + ' / ' + steps
+        });
+      }
+    }
+    f.push({ active: -1, decode: [], status: 'Action chunk complete — ready to execute', hold: true });
+    return f;
+  }
+
+  function reset() {
+    for (var i = 0; i < cells.length; i++) {
+      cells[i].className = 'bd-cell masked';
+      cells[i].style.background = '';
+    }
+    for (var k = 0; k < blabels.length; k++) blabels[k].classList.remove('active');
+  }
+
+  function applyFrame(f) {
+    for (var i = 0; i < cells.length; i++) cells[i].classList.remove('in-active');
+    for (var k = 0; k < blabels.length; k++)
+      blabels[k].classList.toggle('active', k === f.active);
+
+    f.decode.forEach(function (rc) {
+      var cell = cellAt(rc[0], rc[1]);
+      cell.classList.remove('masked');
+      cell.classList.add('decoded');
+      cell.style.background = colorFor();
+    });
+
+    if (f.active >= 0) {
+      for (var r = 0; r < D_A; r++) {
+        for (var c = f.active * M; c < (f.active + 1) * M; c++) {
+          var cc = cellAt(r, c);
+          if (cc.classList.contains('masked')) cc.classList.add('in-active');
+        }
+      }
+    }
+    status.textContent = f.status;
+  }
+
+  function tick() {
+    if (idx === 0) reset();
+    applyFrame(frames[idx]);
+    var f = frames[idx];
+    idx++;
+    if (idx >= frames.length) {
+      idx = 0;
+      frames = buildSchedule();
+      timer = setTimeout(tick, f.hold ? 1800 : 900);
+    } else {
+      timer = setTimeout(tick, f.hold ? 1800 : 750);
+    }
+  }
+
+  // (Re)start the animation from the current M / N_D settings
+  function restart() {
+    if (timer) clearTimeout(timer);
+    nBlocks = H_P / M;
+    buildLabels();
+    frames = buildSchedule();
+    idx = 0;
+    tick();
+  }
+
+  selM.addEventListener('change', function () { M = parseInt(this.value, 10); restart(); });
+  selND.addEventListener('change', function () { N_D = parseInt(this.value, 10); restart(); });
+
+  restart();
+})();
+</script>
+<!-- ========================== END BLOCK DIFFUSION GENERATION ANIMATION ========================== -->
+
+
+<!-- ============================== REAL-TIME CHUNKING ANIMATION ============================== -->
+<section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-4" style="white-space: pre;">Homogeneous Datasets   vs   Heterogeneous Datasets</h2>       
+    <h2 class="title is-3">Real-Time Chunking</h2>
+    <div class="content has-text-justified">
+      <p>
+        To compensate for the inference latency in real-time control, TBD-VLA generates the next action chunk
+        <b>asynchronously</b> using Real-Time Chunking (RTC). The tail of the previously generated chunk &mdash; the actions covering the latency window
+        &mdash; is <b>frozen and reused as an in-painting prefix</b> for the next chunk. Each cycle the
+        model denoises a prediction length of <b><i>H<sub>a</sub>&nbsp;+&nbsp;d</i></b> timesteps: the
+        first <i>d</i> are the frozen in-painting prefix, and the remaining <b><i>H<sub>a</sub></i></b>
+        (the rollout horizon) are newly generated and then executed. This aligns well with TBD-VLA's
+        masked block-diffusion objective, which is trained to complete action blocks from partial
+        context, yielding temporally coherent actions despite latency.
+      </p>
+    </div>
+
+    <div class="rtc-wrap">
+      <div class="bd-controls">
+        <label class="bd-ctrl">
+          <span>Rollout horizon <i>H<sub>a</sub></i></span>
+          <select id="rtc-ha">
+            <option value="4">4</option>
+            <option value="8" selected>8</option>
+            <option value="12">12</option>
+          </select>
+        </label>
+        <label class="bd-ctrl">
+          <span>Temporal block size <i>m</i></span>
+          <select id="rtc-m">
+            <option value="2">2</option>
+            <option value="4" selected>4</option>
+          </select>
+        </label>
+        <label class="bd-ctrl">
+          <span>Latency window <i>d</i></span>
+          <select id="rtc-d">
+            <option value="1">1</option>
+            <option value="2" selected>2</option>
+            <option value="3">3</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="rtc-viewport" class="rtc-viewport">
+        <div id="rtc-track" class="rtc-track"></div>
+        <div class="rtc-now"><span class="rtc-now-label">now</span></div>
+      </div>
+
+      <div class="bd-footer">
+        <div id="rtc-status" class="bd-status">&nbsp;</div>
+        <div class="bd-legend">
+          <span class="bd-legend-item"><span class="bd-swatch rtc-sw-future"></span> future <code>[MASK]</code></span>
+          <span class="bd-legend-item"><span class="bd-swatch rtc-sw-fresh"></span> newly generated</span>
+          <span class="bd-legend-item"><span class="bd-swatch rtc-sw-inpaint"></span> frozen tail &rarr; in-painting prefix</span>
+          <span class="bd-legend-item"><span class="bd-swatch rtc-sw-exec"></span> executed</span>
+          <span class="bd-legend-item"><span class="bd-swatch rtc-sw-discard"></span> surplus (discarded)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content has-text-justified" style="margin-top: 0.8rem;">
+      <p style="font-size: 0.95rem; color:#555;">
+        Each row is one inference cycle; the window slides left over global time (x-axis). The
+        <span style="color:#d97706; font-weight:600;">orange</span> cells at the start of every new
+        chunk are copied (frozen) from the previous chunk's tail at the same timesteps &mdash; the
+        in-painting prefix &mdash; while the <span style="color:#2c7fb8; font-weight:600;">blue</span>
+        cells are freshly denoised. The red <b>now</b> line marks where generation of the new chunk
+        begins.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .rtc-wrap {
+    background: #f7f9fc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    overflow-x: auto;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  .rtc-viewport {
+    position: relative;
+    overflow: hidden;
+    height: 184px;
+    min-width: 640px;
+    background: #fff;
+    border: 1px solid #e7edf3;
+    border-radius: 8px;
+  }
+  .rtc-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.7s ease;
+  }
+  .rtc-chunk {
+    position: absolute;
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    transition: top 0.5s ease;
+  }
+  .rtc-cell {
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+    flex: 0 0 auto;
+    transition: background 0.35s ease, box-shadow 0.25s ease, opacity 0.35s ease;
+  }
+  .rtc-cell.future {
+    background: repeating-linear-gradient(45deg, #cbd3dd, #cbd3dd 3px, #dde3ea 3px, #dde3ea 6px);
+  }
+  .rtc-cell.fresh { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35); }
+  .rtc-cell.inpaint {
+    background: #f0a44e !important;
+    box-shadow: inset 0 0 0 2px #d97706;
+  }
+  .rtc-cell.tail { box-shadow: 0 0 0 2px #e08a2e, 0 0 5px rgba(224,138,46,0.5); }
+  .rtc-cell.active {
+    box-shadow: 0 0 0 2px #f3a712, 0 0 6px rgba(243,167,18,0.6);
+    transform: scale(1.08);
+    z-index: 3;
+  }
+  .rtc-cell.executed { opacity: 0.35; }
+  .rtc-cell.discarded {
+    position: relative;
+    filter: grayscale(0.6);
+    box-shadow: inset 0 0 0 1px #94a3b8;
+  }
+  .rtc-cell.discarded::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 44%, #64748b 44%, #64748b 56%, transparent 56%);
+  }
+  @keyframes rtc-toss {
+    0%   { opacity: 1; }
+    100% { transform: translate(10px, 40px) rotate(24deg) scale(0.5); opacity: 0; }
+  }
+  .rtc-cell.tossed {
+    animation: rtc-toss 0.65s cubic-bezier(0.55, 0, 0.85, 0.4) forwards;
+    z-index: 5;
+  }
+  .rtc-tag {
+    margin-left: 8px;
+    font-size: 0.72rem;
+    color: #64748b;
+    white-space: nowrap;
+  }
+  .rtc-now {
+    position: absolute;
+    width: 2px;
+    background: #ef4444;
+    top: 6px;
+    bottom: 32px;
+    z-index: 4;
+  }
+  .rtc-now-label {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #ef4444;
+  }
+  .rtc-ruler { position: absolute; }
+  .rtc-tick {
+    position: absolute;
+    font-size: 0.66rem;
+    color: #94a3b8;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 2px;
+  }
+  .rtc-sw-future { background: repeating-linear-gradient(45deg, #cbd3dd, #cbd3dd 3px, #dde3ea 3px, #dde3ea 6px); }
+  .rtc-sw-fresh { background: hsl(205, 65%, 55%); }
+  .rtc-sw-inpaint { background: #f0a44e; box-shadow: inset 0 0 0 2px #d97706; }
+  .rtc-sw-exec { background: hsl(205, 65%, 55%); opacity: 0.35; }
+  .rtc-sw-discard {
+    background: linear-gradient(135deg, #c3ccd6 44%, #64748b 44%, #64748b 56%, #c3ccd6 56%);
+  }
+</style>
+
+<script>
+(function () {
+  // ── TBD-VLA Real-Time Chunking (RTC) animation ─────────────────────────
+  var CELL = 26, GAP = 3, UNIT = CELL + GAP;   // 29px per timestep
+  var ROWGAP = 46;
+  var TOPPAD = 18;
+  var MAXROWS = 3;
+  var LEFTANCHOR = 4 * UNIT;   // x of the current chunk's start (the "now" line)
+  var N_CYCLES = 5;
+
+  var H_A = 8;   // rollout horizon (# new actions executed per cycle = stride)
+  var M   = 4;   // temporal block size
+  var D   = 2;   // latency window / frozen-prefix length (d < m)
+  // effective prediction length per chunk = rollout horizon + latency
+  function predLen() { return H_A + D; }
+  // we always decode whole blocks; the tail of the last block beyond predLen
+  // is surplus that gets discarded
+  function nBlocks() { return Math.ceil(predLen() / M); }
+  function genLen()  { return nBlocks() * M; }
+
+  var viewport = document.getElementById('rtc-viewport');
+  var track    = document.getElementById('rtc-track');
+  var nowLine  = document.querySelector('.rtc-now');
+  var status   = document.getElementById('rtc-status');
+  var selHA    = document.getElementById('rtc-ha');
+  var selM     = document.getElementById('rtc-m');
+  var selD     = document.getElementById('rtc-d');
+  if (!viewport) return;
+
+  nowLine.style.left = LEFTANCHOR + 'px';
+
+  var rows = [];
+  var runId = 0;
+  var timer = null;
+
+  function stride() { return H_A; }   // advance by the rollout horizon each cycle
+
+  function colorFresh() {
+    var L = 45 + Math.floor(Math.random() * 22);
+    var Hh = 200 + Math.floor(Math.random() * 25);
+    return 'hsl(' + Hh + ', 62%, ' + L + '%)';
+  }
+
+  function sleep(ms, cb, id) {
+    timer = setTimeout(function () { if (id === runId) cb(); }, ms);
+  }
+
+  function clearAll() {
+    if (timer) clearTimeout(timer);
+    track.innerHTML = '';
+    rows = [];
+  }
+
+  function buildRuler() {
+    var maxT = (N_CYCLES - 1) * stride() + genLen();
+    var ruler = document.createElement('div');
+    ruler.className = 'rtc-ruler';
+    ruler.style.top = (TOPPAD + MAXROWS * ROWGAP) + 'px';
+    for (var t = 0; t <= maxT; t++) {
+      var tick = document.createElement('div');
+      tick.className = 'rtc-tick';
+      tick.style.left = (t * UNIT) + 'px';
+      tick.style.width = CELL + 'px';
+      tick.textContent = t;
+      ruler.appendChild(tick);
+    }
+    track.appendChild(ruler);
+  }
+
+  function makeChunk(start, cycleIdx) {
+    var el = document.createElement('div');
+    el.className = 'rtc-chunk';
+    el.style.left = (start * UNIT) + 'px';
+    var cells = [];
+    var G = genLen();
+    for (var j = 0; j < G; j++) {
+      var c = document.createElement('div');
+      c.className = 'rtc-cell future';
+      el.appendChild(c);
+      cells.push(c);
+    }
+    var tag = document.createElement('div');
+    tag.className = 'rtc-tag';
+    tag.textContent = 'inference ' + (cycleIdx + 1);
+    el.appendChild(tag);
+    track.appendChild(el);
+    return { start: start, cells: cells, el: el, cycle: cycleIdx };
+  }
+
+  function positionRows() {
+    for (var r = 0; r < rows.length; r++)
+      rows[r].el.style.top = (TOPPAD + r * ROWGAP) + 'px';
+  }
+
+  function slideTo(start) {
+    track.style.transform = 'translateX(' + (LEFTANCHOR - start * UNIT) + 'px)';
+  }
+
+  function runCycle(i, id) {
+    if (id !== runId) return;
+    if (i >= N_CYCLES) { sleep(1500, function () { start(); }, id); return; }
+
+    var st = stride();
+    var s0 = i * st;
+    var ch = makeChunk(s0, i);
+    rows.push(ch);
+
+    // Freeze previous chunk's tail as the in-painting prefix of this chunk
+    if (i > 0) {
+      var prev = rows[rows.length - 2];
+      for (var j = 0; j < D; j++) {
+        ch.cells[j].className = 'rtc-cell inpaint';
+        var srcTail = prev.cells[st + j];   // same global timestep
+        if (srcTail) ch.cells[j].style.background = srcTail.style.background;
+      }
+    }
+
+    // keep only the most recent MAXROWS rows on screen
+    while (rows.length > MAXROWS) {
+      var old = rows.shift();
+      if (old.el.parentNode) old.el.parentNode.removeChild(old.el);
+    }
+    positionRows();
+    slideTo(s0);
+
+    status.textContent = (i === 0)
+      ? 'Inference 1: generate first chunk for t = 0–' + (predLen() - 1)
+      : 'Inference ' + (i + 1) + ': freeze previous tail (t = ' + s0 + '–' + (s0 + D - 1) +
+        ') as in-painting prefix, slide window to t = ' + s0;
+
+    sleep(800, function () { denoise(ch, i, id); }, id);
+  }
+
+  function clearActive(ch) {
+    for (var j = 0; j < ch.cells.length; j++) ch.cells[j].classList.remove('active');
+  }
+
+  // Reveal the chunk one temporal block at a time (autoregressive across
+  // blocks, parallel within a block). The first block's frozen in-painting
+  // prefix (first D cells) is skipped, so block 0 only unmasks m - d cells.
+  function denoise(ch, i, id) {
+    revealBlock(ch, i, id, 0, nBlocks());
+  }
+
+  function revealBlock(ch, i, id, k, nB) {
+    if (id !== runId) return;
+    if (k >= nB) { sleep(500, function () { executePhase(ch, i, id); }, id); return; }
+
+    var L = predLen();
+    var bStart = k * M, bEnd = (k + 1) * M;   // always a full block
+    var toReveal = [];
+    for (var j = bStart; j < bEnd; j++)
+      if (ch.cells[j].classList.contains('future')) toReveal.push(j);
+    var hasSurplus = bEnd > L;   // last block overshoots the effective length
+
+    // highlight the active block (parallel denoise)
+    clearActive(ch);
+    toReveal.forEach(function (j) { ch.cells[j].classList.add('active'); });
+
+    if (k === 0 && i > 0) {
+      status.textContent = 'Inference ' + (i + 1) + ' · Block 0: in-painting prefix frozen (' +
+        D + '), unmasking m - d = ' + toReveal.length + ' actions';
+    } else {
+      status.textContent = 'Inference ' + (i + 1) + ' · Block ' + k + ': unmasking ' +
+        toReveal.length + ' actions in parallel' +
+        (hasSurplus ? ' (full block — surplus tail will be discarded)' : '');
+    }
+
+    sleep(550, function () {
+      toReveal.forEach(function (j) {
+        ch.cells[j].className = 'rtc-cell fresh';
+        ch.cells[j].style.background = colorFresh();
+      });
+      sleep(450, function () { revealBlock(ch, i, id, k + 1, nB); }, id);
+    }, id);
+  }
+
+  function executePhase(ch, i, id) {
+    var st = stride();          // = rollout horizon
+    var L = predLen();          // effective kept length (H_a + d)
+    var G = genLen();           // full generated length (whole blocks)
+    for (var j = 0; j < st; j++) ch.cells[j].classList.add('executed');     // rollout actions
+    for (var k = st; k < L; k++) ch.cells[k].classList.add('tail');         // tail reused next
+    var surplusCells = [];
+    for (var s = L; s < G; s++) {                                           // surplus -> discarded
+      ch.cells[s].classList.remove('tail', 'active');
+      ch.cells[s].classList.add('discarded');
+      surplusCells.push(ch.cells[s]);
+    }
+
+    var surplus = surplusCells.length;
+    status.textContent = 'Execute the rollout horizon (' + st + ' actions); keep last ' + D +
+      ' as the frozen tail' + (surplus > 0 ? '; discard ' + surplus + ' surplus tail action' +
+      (surplus > 1 ? 's' : '') : '');
+
+    if (surplus > 0) {
+      // let the strikethrough register, then toss the surplus tokens away
+      sleep(600, function () {
+        surplusCells.forEach(function (c, idx) {
+          c.style.animationDelay = (idx * 80) + 'ms';
+          c.classList.add('tossed');
+        });
+        sleep(700 + surplus * 80, function () { runCycle(i + 1, id); }, id);
+      }, id);
+    } else {
+      sleep(1200, function () { runCycle(i + 1, id); }, id);
+    }
+  }
+
+  function start() {
+    // keep parameters consistent: the in-painting prefix lives in the first
+    // block, so d must be < m (and at least 1).
+    if (D > M - 1) D = M - 1;
+    if (D < 1) D = 1;
+
+    runId++;
+    var id = runId;
+    clearAll();
+    buildRuler();
+    // reset position without animating
+    track.style.transition = 'none';
+    track.style.transform = 'translateX(' + LEFTANCHOR + 'px)';
+    void track.offsetHeight;   // force reflow
+    track.style.transition = 'transform 0.7s ease';
+    runCycle(0, id);
+  }
+
+  selHA.addEventListener('change', function () { H_A = parseInt(this.value, 10); start(); });
+  selM.addEventListener('change', function () { M = parseInt(this.value, 10); if (D > M - 1) D = M - 1; start(); });
+  selD.addEventListener('change', function () { D = parseInt(this.value, 10); start(); });
+
+  start();
+})();
+</script>
+<!-- ============================ END REAL-TIME CHUNKING ANIMATION ============================ -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Benchmarks &amp; Tasks</h2>
     <div class="content has-text-centered">
-      <img src="./static/images/topdown.png"
-          alt="Description of your image"
-          width="70%">
+      <img src="./static/images/sim.png"
+           alt="Benchmarks and tasks"
+           width="80%">
     </div>
     <div class="content has-text-justified">
       <p>
-        <b><span class="homogeneous">Homogeneous</span>/<span class="heterogeneous">Heterogeneous</span> data collection setups.</b> <b>(A)</b> <span class="homogeneous">Fixed camera (Fixed-Cam)</span>, commonly
-        used in conventional behavior cloning pipelines. <b>(B)</b> <span class="heterogeneous">Random static camera (Rand-Cam)</span>, where
-        the camera pose is randomly sampled at the start of each episode but remains fixed during the
-        episode. <b>(C)</b> <span class="heterogeneous">Dynamic camera (Dyn-Cam)</span>, where a randomly initialized camera moves during the
-        episode with a random direction while maintaining a consistent look-at target. <b>(D)</b> <span class="homogeneous">Fixed object
-        color (Fixed-Color)</span>, commonly assumed in vision-based behavior cloning tasks. <b>(E)</b> <span class="heterogeneous">Random object 
-        color (Rand-Color)</span>, where the color of the objects is randomly varied in each demonstration.
+        <b>Benchmarks and tasks.</b> In simulation, TBD-VLA is evaluated across multiple robots:
+        <b>LIBERO</b> and <b>LIBERO-Plus</b> using a Franka Panda arm, and <b>SimplerEnv</b> using the
+        Google Robot and WidowX arm. In the real-world, three tabletop tasks are used to evaluate with
+        a Franka Research 3 (FR3) arm.
       </p>
     </div>
-      </div>
+  </div>
 </section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">How TBD-VLA Compares</h2>
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable tbd-table">
+        <thead>
+          <tr>
+            <th class="is-left">Model</th>
+            <th>Size</th>
+            <th>Temporal AR</th>
+            <th>Action Decoder</th>
+            <th>Latency (s) &darr;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="is-left">SmolVLA</td><td>0.5B</td><td>&#10007;</td><td>Flow Matching</td><td>0.297</td></tr>
+          <tr><td class="is-left">GR00T-N1</td><td>2.2B</td><td>&#10007;</td><td>Flow Matching</td><td>0.131</td></tr>
+          <tr><td class="is-left">&pi;<sub>0.5</sub></td><td>3B</td><td>&#10007;</td><td>Flow Matching</td><td>0.208</td></tr>
+          <tr><td class="is-left">OpenVLA</td><td>7B</td><td>&#10007;</td><td>Autoregressive</td><td>0.344</td></tr>
+          <tr><td class="is-left">OpenVLA-OFT</td><td>7B</td><td>&#10007;</td><td>Parallel</td><td class="tbd-best">0.031</td></tr>
+          <tr><td class="is-left">MolmoAct</td><td>7B</td><td>&#10007;</td><td>Autoregressive</td><td>5.633</td></tr>
+          <tr><td class="is-left">&pi;<sub>0</sub>-FAST</td><td>3B</td><td>&#10007;</td><td>Autoregressive</td><td>0.767</td></tr>
+          <tr><td class="is-left">Discrete Diffusion VLA</td><td>7B</td><td>&#10007;</td><td>Discrete Diffusion</td><td>0.069</td></tr>
+          <tr><td class="is-left">VLA-0</td><td>3B</td><td>&#9650;</td><td>Autoregressive</td><td>1.980</td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA</b></td><td><b>2B</b></td><td>&#10003;</td><td><b>Block Discrete Diffusion</b></td><td>0.117</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-caption has-text-centered">
+      Comparison of VLA models by size, temporal autoregression (AR), decoding strategy, and action
+      generation latency in the LIBERO environment. VLA-0 is autoregressive in text strings.
+    </p>
+  </div>
+</section>
+
 
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Results</h2>
-      <h2 class="title is-4">Simulation</h2>
-      <div class="content has-text-centered">
-        <img src="./static/images/results_summary.png"
-            alt="Description of your image"
-            width="100%">
-      </div>
-    CLASS consistently improves success rates across all tasks and policy classes: Across the static and dynamic 
-    settings, it achieves <b>85%</b> success rate with <b>MLP</b> and <b>91%</b> with <b>Diffusion Policy (DP)
-    </b> on average, significantly outperforming the best baselines, which reach only 63% and 77%, respectively. 
-    Larger gains are observed under dynamic camera and random object color setups, where CLASS achieves mean 
-    success rates of <b>76%</b> (MLP) and <b>85%</b>(DP), compared to <b>32%</b> and <b>57%</b> from the best 
-    baselines. In the non-parametric (Rep-Only) setting, CLASS achieves success rates comparable to parametric 
-    DP, despite using no policy head, with only a <b>9%</b> drop in mean success rate with an average of 
-    <b>83%</b> across all tasks.
+
+    <h2 class="title is-4">LIBERO</h2>
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable tbd-table">
+        <thead>
+          <tr>
+            <th class="is-left">Model</th>
+            <th>Spatial</th><th>Object</th><th>Goal</th><th>Long</th><th>Avg</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="is-left">OpenVLA-OFT</td><td>96.2</td><td>98.3</td><td>96.2</td><td>90.7</td><td>95.4</td></tr>
+          <tr><td class="is-left">&pi;<sub>0</sub>-Fast</td><td>96.4</td><td>96.8</td><td>88.6</td><td>60.2</td><td>85.5</td></tr>
+          <tr><td class="is-left">&pi;<sub>0.5</sub></td><td class="tbd-best">98.8</td><td>98.2</td><td class="tbd-second">98.0</td><td>92.4</td><td class="tbd-second">96.9</td></tr>
+          <tr><td class="is-left">GR00T-N1</td><td>94.4</td><td>97.6</td><td>93.0</td><td>90.6</td><td>93.9</td></tr>
+          <tr><td class="is-left">MolmoAct</td><td>87.0</td><td>95.4</td><td>87.6</td><td>77.2</td><td>86.6</td></tr>
+          <tr><td class="is-left">UniVLA</td><td>95.4</td><td class="tbd-second">98.8</td><td>93.6</td><td class="tbd-second">94.0</td><td>95.5</td></tr>
+          <tr><td class="is-left">VLA-0</td><td>97.0</td><td>97.8</td><td>96.2</td><td>87.6</td><td>94.7</td></tr>
+          <tr><td class="is-left">Disc Diff VLA</td><td>97.2</td><td>98.6</td><td>97.4</td><td>92.0</td><td>96.3</td></tr>
+          <tr><td class="is-left">UD-VLA</td><td>94.1</td><td>95.7</td><td>91.2</td><td>89.6</td><td>92.7</td></tr>
+          <tr><td class="is-left">dVLA</td><td>97.4</td><td>97.9</td><td class="tbd-best">98.2</td><td>92.2</td><td>96.4</td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA</b></td><td class="tbd-second">97.6</td><td class="tbd-best">99.6</td><td>97.4</td><td class="tbd-best">96.6</td><td class="tbd-best">97.7</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-caption has-text-centered">
+      Success rates (%) on the LIBERO benchmark across the four task suites. <b>Best</b> per column in
+      bold; <span class="tbd-second">second-best</span> underlined.
+    </p>
+
+    <div class="content has-text-justified" style="margin-top: 1.5rem;">
+      <p>
+        TBD-VLA achieves <b>SOTA results on LIBERO at 97.7% average success rate</b>. On
+        <b>LIBERO-Plus</b>, which applies controlled perturbations (object layout, viewpoint, robot
+        state, language, lighting, background, sensor noise), TBD-VLA reaches <b>83.0% average success
+        rate</b>, outperforming the second-best method by <b>15.1%</b>.
+      </p>
+    </div>
+
     <div class="columns is-centered">
-  </div>
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <img src="./static/images/liberoplus.png" alt="LIBERO-Plus results" width="90%">
+          <p class="table-caption">Robustness across zero-shot LIBERO-Plus perturbation scenarios.</p>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="content has-text-centered">
+          <img src="./static/images/RTC_sim.png" alt="RTC vs latency" width="100%">
+          <p class="table-caption">
+            LIBERO-Long success rate with/without RTC vs. inference latency. Stars denote zero added
+            latency.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content has-text-justified">
+      <p>
+        <b>Real-Time Chunking under latency.</b> Under an inference delay of 4 simulation steps,
+        TBD-VLA with RTC retains a <b>93.2% success rate</b> &mdash; 3.4% higher than &pi;<sub>0.5</sub>
+        with RTC. Without RTC, performance degrades to 72.3% under the same latency, demonstrating the
+        effectiveness of asynchronous inference enabled by TBD-VLA's temporal in-painting.
+      </p>
+    </div>
   </div>
 </section>
 
 
 <section class="section">
-  <div class="container">
-    <h2 class="title is-4 has-text-centered">Rollouts under Visual Variation</h2>
-
-    <!-- Repeat for each task -->
-    <div class="box">
-      <h3 class="title is-5 has-text-centered">Square (Robomimic)</h3>
-      <div class="columns is-centered is-variable is-0">
-        <div class="column is-half has-text-centered">
-          <h4 class="subtitle is-6">ImageNet + Diffusion Policy</h4>
-          <video controls muted playsinline style="max-width: 60%; height: auto;">
-            <source src="/static/videos/BC_square_rollout.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="column is-half has-text-centered">
-          <h4 class="subtitle is-6">ImageNet + <b>CLASS</b> + Diffusion Policy</h4>
-          <video controls muted playsinline style="max-width: 60%; height: auto;">
-            <source src="/static/videos/CLASS_square_rollout.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-
-    <div class="box">
-      <h3 class="title is-5 has-text-centered">Three-Stack (Mimicgen)</h3>
-      <div class="columns is-centered is-gapless is-variable is-0">
-        <div class="column is-half has-text-centered">
-          <h4 class="subtitle is-6">ImageNet + Diffusion Policy</h4>
-          <video controls muted playsinline style="max-width: 60%; height: auto;">
-            <source src="/static/videos/BC_threestack_rollout.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="column has-text-centered">
-          <h4 class="subtitle is-6">ImageNet + <b>CLASS</b> + Diffusion Policy</h4>
-          <video controls muted playsinline style="max-width: 60%; height: auto;">
-            <source src="/static/videos/CLASS_threestack_rollout.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-
-    <div class="box">
-      <h3 class="title is-5 has-text-centered">Cube-Transfer (Aloha)</h3>
-      <div class="columns is-centered is-gapless is-variable is-0">
-        <div class="column has-text-centered">
-          <h4 class="subtitle is-6">ImageNet + Diffusion Policy</h4>
-          <video controls muted playsinline style="max-width: 60%; height: auto;">
-            <source src="/static/videos/BC_aloha_rollout.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="column has-text-centered">
-          <h4 class="subtitle is-6">ImageNet + <b>CLASS</b> + Diffusion Policy</h4>
-          <video controls muted playsinline style="max-width: 60%; height: auto;">
-            <source src="/static/videos/CLASS_aloha_rollout.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-
-    <div class="box">      
-      <h3 class="title is-5 has-text-centered">Push-T</h3>
-      <div class="columns is-centered is-gapless is-variable is-0">
-        <div class="column has-text-centered">
-          <h4 class="subtitle is-6">ImageNet + Diffusion Policy</h4>
-          <video controls muted playsinline style="max-width: 60%; height: auto;">
-            <source src="/static/videos/BC_pusht_rollout.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="column has-text-centered">
-          <h4 class="subtitle is-6">ImageNet + <b>CLASS</b> + Diffusion Policy</h4>
-          <video controls muted playsinline style="max-width: 60%; height: auto;">
-            <source src="/static/videos/CLASS_pusht_rollout.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-</section>
   <div class="container is-max-desktop">
-    <h2 class="title is-4">Real-World Experiments</h2>
-      <div class="box">
-          <h3 class="title is-5 has-text-centered">Tasks</h3>
-          <div style="display: flex; gap: 0.5rem;">
-              <div style="flex: 1; text-align: center;">
-                  <h4 class="subtitle is-6">Two-Stack</h4>
-                  <video controls muted playsinline style="width: 100%; max-width: 300px; height: auto;">
-                      <source src="/static/videos/stack.mp4" type="video/mp4">
-                  </video>
-              </div>
-              <div style="flex: 1; text-align: center;">
-                  <h4 class="subtitle is-6">Mug-Hang</h4>
-                  <video controls muted playsinline style="width: 100%; max-width: 300px; height: auto;">
-                      <source src="/static/videos/mug.mp4" type="video/mp4">
-                  </video>
-              </div>
-              <div style="flex: 1; text-align: center;">
-                  <h4 class="subtitle is-6">Toaster-Load</h4>
-                  <video controls muted playsinline style="width: 100%; max-width: 300px; height: auto;">
-                      <source src="/static/videos/toast.mp4" type="video/mp4">
-                  </video>    
-              </div>
-          </div>
-      </div>  
-      <div class="box">
-        <h3 class="title is-5 has-text-centered">Camera Placements</h3>
-        <div class="content has-text-centered" style="display: flex; justify-content: center; align-items: flex-start; gap: 2rem;">
-          <div style="text-align: center;">
-            <img src="./static/images/camera.png"
-                alt="Description of your image"
-                width="100%"
-                style="max-width: 400px;">
-            <p style="margin-top: 0.5rem; font-size: 1.0rem;">
-              Visualization of camera poses for Mug-Hang
-            </p>
-          </div>
-          
-          <div style="text-align: center;">
-            <img src="./static/images/mug_camera.png"
-                alt="Description of your image"
-                width="97.8%"
-                style="max-width: 300px;">
-            <p style="margin-top: 0.5rem; font-size: 1.0rem;">
-              Individual camera positions from <br> 25 random episodes for Mug-Hang
-            </p>
-          </div>
-        </div>
-      </div>
+    <h2 class="title is-4">SimplerEnv &mdash; WidowX</h2>
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable tbd-table">
+        <thead>
+          <tr>
+            <th class="is-left">Model</th>
+            <th>Spoon on Towel</th>
+            <th>Carrot on Plate</th>
+            <th>Stack Block</th>
+            <th>Eggplant in Basket</th>
+            <th>Avg</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="is-left">Octo</td><td>12.5</td><td>8.3</td><td>0.0</td><td>43.1</td><td>16.0</td></tr>
+          <tr><td class="is-left">OpenVLA</td><td>0.0</td><td>0.0</td><td>0.0</td><td>4.1</td><td>1.0</td></tr>
+          <tr><td class="is-left">SpatialVLA</td><td>20.8</td><td>20.8</td><td>25.0</td><td>70.8</td><td>34.4</td></tr>
+          <tr><td class="is-left">&pi;<sub>0</sub></td><td>29.1</td><td>0.0</td><td>16.6</td><td>62.5</td><td>27.1</td></tr>
+          <tr><td class="is-left">&pi;<sub>0</sub>-FAST</td><td>29.1</td><td>21.9</td><td>10.8</td><td>66.6</td><td>32.1</td></tr>
+          <tr><td class="is-left">&pi;<sub>0.5</sub></td><td>44.4</td><td>29.2</td><td>18.1</td><td>63.9</td><td>38.9</td></tr>
+          <tr><td class="is-left">UniVLA</td><td class="tbd-best">83.3</td><td>66.7</td><td class="tbd-best">33.3</td><td class="tbd-second">95.8</td><td class="tbd-best">69.8</td></tr>
+          <tr><td class="is-left">LLaDA-VLA</td><td class="tbd-second">56.9</td><td class="tbd-second">76.3</td><td>30.6</td><td>58.3</td><td>55.5</td></tr>
+          <tr><td class="is-left">Disc Diff VLA</td><td>29.2</td><td>29.2</td><td>20.8</td><td>70.8</td><td>37.5</td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA</b></td><td>52.0</td><td class="tbd-best">86.8</td><td class="tbd-second">31.2</td><td class="tbd-best">97.2</td><td class="tbd-second">66.8</td></tr>
+        </tbody>
+      </table>
     </div>
+    <p class="table-caption has-text-centered">
+      Final-success rates (%) on SimplerEnv WidowX. <b>Best</b> per column in bold;
+      <span class="tbd-second">second-best</span> underlined.
+    </p>
+
+    <h2 class="title is-4" style="margin-top: 2rem;">SimplerEnv &mdash; Google Robot</h2>
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable tbd-table">
+        <thead>
+          <tr>
+            <th class="is-left">Model</th>
+            <th>Pick Can (VM)</th><th>Move Near (VM)</th><th>Drawer (VM)</th><th>Avg (VM)</th>
+            <th>Pick Can (VA)</th><th>Move Near (VA)</th><th>Drawer (VA)</th><th>Avg (VA)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="is-left">Octo</td><td>17.0</td><td>4.2</td><td>22.7</td><td>16.8</td><td>0.6</td><td>3.1</td><td>1.1</td><td>1.1</td></tr>
+          <tr><td class="is-left">OpenVLA</td><td>16.3</td><td>46.2</td><td>35.6</td><td>27.7</td><td>54.5</td><td>47.7</td><td>17.7</td><td>39.8</td></tr>
+          <tr><td class="is-left">SpatialVLA</td><td>86.0</td><td>77.9</td><td class="tbd-second">57.4</td><td>73.8</td><td>88.0</td><td>72.7</td><td>41.8</td><td>70.7</td></tr>
+          <tr><td class="is-left">&pi;<sub>0</sub></td><td>72.7</td><td>65.3</td><td>38.3</td><td>58.8</td><td>75.2</td><td>63.7</td><td>25.6</td><td>54.8</td></tr>
+          <tr><td class="is-left">&pi;<sub>0</sub>-FAST</td><td>75.3</td><td>67.5</td><td>42.9</td><td>61.9</td><td>77.6</td><td>68.2</td><td>31.3</td><td>59.0</td></tr>
+          <tr><td class="is-left">InternVLA-M1</td><td class="tbd-second">95.3</td><td class="tbd-best">90.0</td><td>52.5</td><td class="tbd-second">79.3</td><td class="tbd-second">97.1</td><td class="tbd-best">82.0</td><td class="tbd-second">72.0</td><td class="tbd-second">83.7</td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA</b></td><td class="tbd-best">99.2</td><td class="tbd-second">85.0</td><td class="tbd-best">88.9</td><td class="tbd-best">91.0</td><td class="tbd-best">97.2</td><td class="tbd-second">78.3</td><td class="tbd-best">83.4</td><td class="tbd-best">86.3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-caption has-text-centered">
+      Success rates (%) on SimplerEnv Google Robot under Visual Matching (VM) and Variant Aggregation
+      (VA). "Drawer" averages opening and closing tasks. <b>Best</b> in bold;
+      <span class="tbd-second">second-best</span> underlined.
+    </p>
   </div>
-  <div style="margin-top: 4rem;"> <!-- Add space before the section -->
-  <h3 class="title is-4 container is-max-desktop">Real-World Results</h3>
-    <div style="text-align: center;">  
-      <img src="./static/images/results_realworld.png"
-          alt="Description of your image"
-          width="45%">
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Real-World Experiments</h2>
+    <div class="content has-text-justified">
+      <p>
+        We design three real-world tabletop tasks on a Franka Research 3 robot with global and in-hand
+        RealSense D435 cameras, requiring <b>long-horizon reasoning</b> ("put every object on the table
+        in the basket"), <b>dexterity</b> ("insert the bread into the toaster"), and <b>reactiveness</b>
+        ("transfer the liquid"). Each method is evaluated under one in-distribution and three
+        out-of-distribution settings (camera viewpoint, language, background/lighting), for 240 rollouts
+        per method.
+      </p>
     </div>
     <div class="content has-text-centered">
-      <video controls muted playsinline style="width: 50%; height: auto;">
-          <source src="/static/videos/real_rollout.mp4" type="video/mp4">
-      </video>
+      <img src="./static/images/real.png"
+           alt="Real-world evaluation results"
+           width="85%">
     </div>
-  </h3>
+    <div class="content has-text-justified">
+      <p>
+        <b>Real-world results.</b> Across the three tasks, TBD-VLA achieves a <b>67.1% average success
+        rate</b>, outperforming &pi;<sub>0.5</sub> at 50.0%. RTC improves both methods; without RTC,
+        TBD-VLA degrades to 60.0%. TBD-VLA maintains strong performance across out-of-distribution
+        settings, demonstrating the effectiveness of temporal modeling with block diffusion.
+      </p>
+    </div>
   </div>
-  </h2>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Design Choices &amp; Efficiency</h2>
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable tbd-table">
+        <thead>
+          <tr>
+            <th class="is-left">Configuration</th>
+            <th>Success Rate (%) &uarr;</th>
+            <th>Inference Time (s) &darr;</th>
+            <th>VLM Forward Passes &darr;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="is-left"><i>m</i>=1, <i>n<sub>d</sub></i>=2, Expectation</td><td>84.6</td><td>0.223</td><td>16</td></tr>
+          <tr><td class="is-left"><i>m</i>=16, <i>n<sub>d</sub></i>=2, Expectation</td><td>84.0</td><td class="tbd-second">0.061</td><td class="tbd-best">2</td></tr>
+          <tr><td class="is-left"><i>m</i>=4, <i>n<sub>d</sub></i>=1, Expectation</td><td class="tbd-second">85.7</td><td class="tbd-best">0.060</td><td class="tbd-best">2</td></tr>
+          <tr><td class="is-left"><i>m</i>=4, <i>n<sub>d</sub></i>=2, Argmax</td><td>81.6</td><td>0.086</td><td>4</td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b><i>m</i>=4, <i>n<sub>d</sub></i>=2, Expectation</b></td><td class="tbd-best">88.7</td><td>0.086</td><td>4</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-caption has-text-centered">
+      <b>SimplerEnv Google Robot:</b> success rate, inference time, and VLM forward passes across temporal
+      block size <i>m</i>, per-block diffusion steps <i>n<sub>d</sub></i>, and action sampling method.
+      Measured on a single NVIDIA RTX A40 GPU.
+    </p>
+
+    <div class="table-container" style="margin-top: 1.5rem;">
+      <table class="table is-fullwidth is-striped is-hoverable tbd-table">
+        <thead>
+          <tr>
+            <th class="is-left">Components</th>
+            <th>Baseline</th>
+            <th>+ Decode as Needed</th>
+            <th>+ KV Cache</th>
+            <th>+ VLM Compile</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="is-left">Inference Speed (s)</td>
+            <td>0.185</td>
+            <td>0.125 (&minus;0.060)</td>
+            <td>0.113 (&minus;0.012)</td>
+            <td>0.086 (&minus;0.027)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-caption has-text-centered">
+      Inference speed breakdown. Decode-as-needed and KV caching are TBD-VLA optimizations; VLM compile
+      applies PyTorch compilation to the VLM forward pass.
+    </p>
+  </div>
 </section>
 
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{lee2025class,
-      title={CLASS: Contrastive Learning via Action Sequence Supervision for Robot Manipulation}, 
-      author={Lee, Sung-Wook and Kang, Xuhui and Yang, Brandon and Kuo, Yen-Ling},
-      booktitle={Conference on Robot Learning (CoRL)},
-      year={2025}, 
+    <pre><code>@article{lee2026tbdvla,
+      title={TBD-VLA: Temporal Block Diffusion Vision Language Action Model},
+      author={Lee, Sung-Wook and Kang, Xuhui and Kuo, Yen-Ling},
+      journal={arXiv preprint},
+      year={2026},
 }</code></pre>
   </div>
 </section>

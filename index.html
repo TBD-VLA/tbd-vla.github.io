@@ -42,8 +42,7 @@
 
   <style>
     .tbd-table { font-size: 0.85rem; }
-    .tbd-table td, .tbd-table th { text-align: center; vertical-align: middle; }
-    .tbd-table td.is-left, .tbd-table th.is-left { text-align: left; }
+    .tbd-table td, .tbd-table th { text-align: center !important; vertical-align: middle; }
     .tbd-best { font-weight: 700; }
     .tbd-second { text-decoration: underline; }
     .table-caption { font-size: 0.95rem; color: #555; margin-top: 0.5rem; }
@@ -51,6 +50,8 @@
     .tbd-good { color: #2e7d32; }   /* improvement */
     .tbd-bad  { color: #c0392b; }   /* regression  */
     .tbd-neu  { color: #8a8a8a; }   /* no change   */
+    .tbd-warn { color: #d4a017; }   /* partial     */
+    .tbd-sym  { font-weight: 700; font-size: 1.15em; }   /* AR status glyphs */
   </style>
 </head>
 <body>
@@ -297,7 +298,7 @@
         <div class="bd-legend">
           <span class="bd-legend-item"><span class="bd-swatch bd-sw-masked"></span> mask tokens</span>
           <span class="bd-legend-item"><span class="bd-swatch bd-sw-decoded"></span> decoded tokens</span>
-          <span class="bd-legend-item"><span class="bd-swatch bd-sw-active"></span> tokens to be decoded</span>
+          <span class="bd-legend-item"><span class="bd-swatch bd-sw-active"></span> to be decoded</span>
         </div>
       </div>
     </div>
@@ -677,19 +678,20 @@
           <span class="bd-legend-item"><span class="bd-swatch rtc-sw-inpaint"></span> frozen tail &rarr; in-painting prefix</span>
           <span class="bd-legend-item"><span class="bd-swatch rtc-sw-exec"></span> executed</span>
           <span class="bd-legend-item"><span class="bd-swatch rtc-sw-discard"></span> surplus (discarded)</span>
+          <span class="bd-legend-item"><span class="bd-swatch bd-sw-active"></span> to be decoded</span>
         </div>
       </div>
     </div>
 
     <div class="content has-text-justified" style="margin-top: 0.8rem;">
-      <p style="font-size: 0.95rem; color:#555;">
+      <!-- <p style="font-size: 0.95rem; color:#555;">
         Each row is one inference cycle; the window slides left over global time (x-axis). The
         <span style="font-weight:600;">snowflake&nbsp;(&#10052;)</span> cells at the start of every new
         chunk are copied (frozen) from the previous chunk's tail at the same timesteps &mdash; the
         in-painting prefix &mdash; while the <span style="color:#2c7fb8; font-weight:600;">blue</span>
         cells are freshly denoised. The red <b>now</b> line marks where generation of the new chunk
         begins.
-      </p>
+      </p> -->
     </div>
   </div>
 </section>
@@ -1108,16 +1110,16 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td class="is-left">SmolVLA</td><td>0.5B</td><td>&#10007;</td><td>Flow Matching</td><td>0.297</td></tr>
-          <tr><td class="is-left">GR00T-N1</td><td>2.2B</td><td>&#10007;</td><td>Flow Matching</td><td>0.131</td></tr>
-          <tr><td class="is-left">&pi;<sub>0.5</sub></td><td>3B</td><td>&#10007;</td><td>Flow Matching</td><td>0.208</td></tr>
-          <tr><td class="is-left">OpenVLA</td><td>7B</td><td>&#10007;</td><td>Autoregressive</td><td>0.344</td></tr>
-          <tr><td class="is-left">OpenVLA-OFT</td><td>7B</td><td>&#10007;</td><td>Parallel</td><td class="tbd-best">0.031</td></tr>
-          <tr><td class="is-left">MolmoAct</td><td>7B</td><td>&#10007;</td><td>Autoregressive</td><td>5.633</td></tr>
-          <tr><td class="is-left">&pi;<sub>0</sub>-FAST</td><td>3B</td><td>&#10007;</td><td>Autoregressive</td><td>0.767</td></tr>
-          <tr><td class="is-left">Discrete Diffusion VLA</td><td>7B</td><td>&#10007;</td><td>Discrete Diffusion</td><td>0.069</td></tr>
-          <tr><td class="is-left">VLA-0</td><td>3B</td><td>&#9650;</td><td>Autoregressive</td><td>1.980</td></tr>
-          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA</b></td><td><b>2B</b></td><td>&#10003;</td><td><b>Block Discrete Diffusion</b></td><td>0.117</td></tr>
+          <tr><td class="is-left">SmolVLA</td><td>0.5B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Flow Matching</td><td>0.297</td></tr>
+          <tr><td class="is-left">GR00T-N1</td><td>2.2B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Flow Matching</td><td>0.131</td></tr>
+          <tr><td class="is-left">&pi;<sub>0.5</sub></td><td>3B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Flow Matching</td><td>0.208</td></tr>
+          <tr><td class="is-left">OpenVLA</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Autoregressive</td><td>0.344</td></tr>
+          <tr><td class="is-left">OpenVLA-OFT</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Parallel</td><td class="tbd-best">0.031</td></tr>
+          <tr><td class="is-left">MolmoAct</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Autoregressive</td><td>5.633</td></tr>
+          <tr><td class="is-left">&pi;<sub>0</sub>-FAST</td><td>3B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Autoregressive</td><td>0.767</td></tr>
+          <tr><td class="is-left">Discrete Diffusion VLA</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Discrete Diffusion</td><td>0.069</td></tr>
+          <tr><td class="is-left">VLA-0</td><td>3B</td><td><span class="tbd-sym tbd-warn">&#9650;</span></td><td>Autoregressive</td><td>1.980</td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA</b></td><td><b>2B</b></td><td><span class="tbd-sym tbd-good">&#10003;</span></td><td><b>Block Discrete Diffusion</b></td><td>0.117</td></tr>
         </tbody>
       </table>
     </div>

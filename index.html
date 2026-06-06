@@ -295,9 +295,9 @@
       <div class="bd-footer">
         <div id="bd-status" class="bd-status">&nbsp;</div>
         <div class="bd-legend">
-          <span class="bd-legend-item"><span class="bd-swatch bd-sw-masked"></span> masked <code>[MASK]</code></span>
-          <span class="bd-legend-item"><span class="bd-swatch bd-sw-decoded"></span> decoded action token</span>
-          <span class="bd-legend-item"><span class="bd-swatch bd-sw-active"></span> active block (parallel denoise)</span>
+          <span class="bd-legend-item"><span class="bd-swatch bd-sw-masked"></span> mask tokens</span>
+          <span class="bd-legend-item"><span class="bd-swatch bd-sw-decoded"></span> decoded tokens</span>
+          <span class="bd-legend-item"><span class="bd-swatch bd-sw-active"></span> tokens to be decoded</span>
         </div>
       </div>
     </div>
@@ -672,7 +672,7 @@
       <div class="bd-footer">
         <div id="rtc-status" class="bd-status">&nbsp;</div>
         <div class="bd-legend">
-          <span class="bd-legend-item"><span class="bd-swatch rtc-sw-future"></span> future <code>[MASK]</code></span>
+          <span class="bd-legend-item"><span class="bd-swatch rtc-sw-future"></span> future</span>
           <span class="bd-legend-item"><span class="bd-swatch rtc-sw-fresh"></span> newly generated</span>
           <span class="bd-legend-item"><span class="bd-swatch rtc-sw-inpaint"></span> frozen tail &rarr; in-painting prefix</span>
           <span class="bd-legend-item"><span class="bd-swatch rtc-sw-exec"></span> executed</span>
@@ -684,7 +684,7 @@
     <div class="content has-text-justified" style="margin-top: 0.8rem;">
       <p style="font-size: 0.95rem; color:#555;">
         Each row is one inference cycle; the window slides left over global time (x-axis). The
-        <span style="color:#d97706; font-weight:600;">orange</span> cells at the start of every new
+        <span style="font-weight:600;">snowflake&nbsp;(&#10052;)</span> cells at the start of every new
         chunk are copied (frozen) from the previous chunk's tail at the same timesteps &mdash; the
         in-painting prefix &mdash; while the <span style="color:#2c7fb8; font-weight:600;">blue</span>
         cells are freshly denoised. The red <b>now</b> line marks where generation of the new chunk
@@ -736,11 +736,26 @@
     background: repeating-linear-gradient(45deg, #cbd3dd, #cbd3dd 3px, #dde3ea 3px, #dde3ea 6px);
   }
   .rtc-cell.fresh { box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35); }
-  .rtc-cell.inpaint {
-    background: #f0a44e !important;
-    box-shadow: inset 0 0 0 2px #d97706;
+  /* Frozen cells (in-painting prefix + the tail it is copied from) keep their
+     action color but are marked with a frost border and a snowflake, so orange
+     is reserved exclusively for "tokens to decode". */
+  .rtc-cell.inpaint, .rtc-cell.tail {
+    position: relative;
+    box-shadow: inset 0 0 0 2px #38bdf8, 0 0 5px rgba(56,189,248,0.55);
   }
-  .rtc-cell.tail { box-shadow: 0 0 0 2px #e08a2e, 0 0 5px rgba(224,138,46,0.5); }
+  .rtc-cell.inpaint::after, .rtc-cell.tail::after {
+    content: '\2744';                 /* ❄ snowflake */
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 0 2px rgba(2,62,138,0.95);
+    pointer-events: none;
+  }
   .rtc-cell.active {
     box-shadow: 0 0 0 2px #f3a712, 0 0 6px rgba(243,167,18,0.6);
     transform: scale(1.08);
@@ -776,7 +791,7 @@
     position: absolute;
     width: 2px;
     background: #ef4444;
-    top: 6px;
+    top: 24px;
     bottom: 32px;
     z-index: 4;
   }
@@ -800,7 +815,23 @@
   }
   .rtc-sw-future { background: repeating-linear-gradient(45deg, #cbd3dd, #cbd3dd 3px, #dde3ea 3px, #dde3ea 6px); }
   .rtc-sw-fresh { background: hsl(205, 65%, 55%); }
-  .rtc-sw-inpaint { background: #f0a44e; box-shadow: inset 0 0 0 2px #d97706; }
+  .rtc-sw-inpaint {
+    position: relative;
+    background: hsl(205, 65%, 55%);
+    box-shadow: inset 0 0 0 2px #38bdf8;
+  }
+  .rtc-sw-inpaint::after {
+    content: '\2744';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    line-height: 1;
+    color: #ffffff;
+    text-shadow: 0 0 2px rgba(2,62,138,0.95);
+  }
   .rtc-sw-exec { background: hsl(205, 65%, 55%); opacity: 0.35; }
   .rtc-sw-discard {
     background: linear-gradient(135deg, #c3ccd6 44%, #64748b 44%, #64748b 56%, #c3ccd6 56%);
@@ -812,9 +843,10 @@
   // ── TBD-VLA Real-Time Chunking (RTC) animation ─────────────────────────
   var CELL = 26, GAP = 3, UNIT = CELL + GAP;   // 29px per timestep
   var ROWGAP = 46;
-  var TOPPAD = 18;
+  var TOPPAD = 26;
   var MAXROWS = 3;
-  var LEFTANCHOR = 4 * UNIT;   // x of the current chunk's start (the "now" line)
+  var LEFTANCHOR = 4 * UNIT;   // x where the current chunk's start aligns (cells/track)
+  var NOW_OFFSET = -4;          // shift ONLY the red "now" line by this many px (+ right, - left)
   var N_CYCLES = 5;
 
   var H_A = 8;   // rollout horizon (# new actions executed per cycle = stride)
@@ -836,7 +868,7 @@
   var selD     = document.getElementById('rtc-d');
   if (!viewport) return;
 
-  nowLine.style.left = LEFTANCHOR + 'px';
+  nowLine.style.left = (LEFTANCHOR + NOW_OFFSET) + 'px';
 
   var rows = [];
   var runId = 0;
@@ -971,8 +1003,7 @@
         D + '), unmasking m - d = ' + toReveal.length + ' actions';
     } else {
       status.textContent = 'Inference ' + (i + 1) + ' · Block ' + k + ': unmasking ' +
-        toReveal.length + ' actions in parallel' +
-        (hasSurplus ? ' (full block — surplus tail will be discarded)' : '');
+        toReveal.length + ' actions in parallel';
     }
 
     sleep(550, function () {
@@ -998,9 +1029,7 @@
     }
 
     var surplus = surplusCells.length;
-    status.textContent = 'Execute the rollout horizon (' + st + ' actions); keep last ' + D +
-      ' as the frozen tail' + (surplus > 0 ? '; discard ' + surplus + ' surplus tail action' +
-      (surplus > 1 ? 's' : '') : '');
+    status.textContent = 'Execute the rollout horizon (' + st + ' actions); keep last ' + D;
 
     if (surplus > 0) {
       // let the strikethrough register, then toss the surplus tokens away

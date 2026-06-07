@@ -631,7 +631,8 @@
         <b>asynchronously</b> using Real-Time Chunking (RTC). The tail of the previously generated chunk &mdash; the actions covering the latency window
         &mdash; is <b>frozen and reused as an in-painting prefix</b> for the next chunk. Each cycle the
         model denoises a prediction length of <b><i>H<sub>a</sub>&nbsp;+&nbsp;d</i></b> timesteps: the
-        first <i>d</i> are the frozen in-painting prefix, and the remaining <b><i>H<sub>a</sub></i></b>
+        first <i>d</i> are the frozen in-painting prefix (spanning one or more whole blocks plus a
+        partial block when <i>d&nbsp;&geq;&nbsp;m</i>), and the remaining <b><i>H<sub>a</sub></i></b>
         (the rollout horizon) are newly generated and then executed. This aligns well with TBD-VLA's
         masked block-diffusion objective, which is trained to complete action blocks from partial
         context, yielding temporally coherent actions despite latency.
@@ -994,19 +995,22 @@
     var toReveal = [];
     for (var j = bStart; j < bEnd; j++)
       if (ch.cells[j].classList.contains('future')) toReveal.push(j);
-    var hasSurplus = bEnd > L;   // last block overshoots the effective length
+    // how many cells of this block are frozen in-painting (d may span >1 block)
+    var frozenInBlock = (i > 0) ? Math.max(0, Math.min(bEnd, D) - bStart) : 0;
+
+    // a fully frozen block (no tokens to decode) is skipped quickly
+    if (toReveal.length === 0) {
+      sleep(200, function () { revealBlock(ch, i, id, k + 1, nB); }, id);
+      return;
+    }
 
     // highlight the active block (parallel denoise)
     clearActive(ch);
     toReveal.forEach(function (j) { ch.cells[j].classList.add('active'); });
 
-    if (k === 0 && i > 0) {
-      status.textContent = 'Inference ' + (i + 1) + ' · Block 0: in-painting prefix frozen (' +
-        D + '), unmasking m - d = ' + toReveal.length + ' actions';
-    } else {
-      status.textContent = 'Inference ' + (i + 1) + ' · Block ' + k + ': unmasking ' +
-        toReveal.length + ' actions in parallel';
-    }
+    status.textContent = 'Inference ' + (i + 1) + ' · Block ' + k +
+      (frozenInBlock > 0 ? ': ' + frozenInBlock + ' frozen, unmasking ' + toReveal.length
+                         : ': unmasking ' + toReveal.length) + ' actions in parallel';
 
     sleep(550, function () {
       toReveal.forEach(function (j) {
@@ -1048,10 +1052,10 @@
   }
 
   function start() {
-    // keep parameters consistent: the in-painting prefix lives in the first
-    // block, so d must be < m (and at least 1).
-    if (D > M - 1) D = M - 1;
+    // d (latency window) may exceed a full block: the frozen prefix then spans
+    // one or more whole blocks plus a partial block. Just keep it sane.
     if (D < 1) D = 1;
+    if (D > H_A) D = H_A;
 
     runId++;
     var id = runId;
@@ -1066,7 +1070,7 @@
   }
 
   selHA.addEventListener('change', function () { H_A = parseInt(this.value, 10); start(); });
-  selM.addEventListener('change', function () { M = parseInt(this.value, 10); if (D > M - 1) D = M - 1; start(); });
+  selM.addEventListener('change', function () { M = parseInt(this.value, 10); start(); });
   selD.addEventListener('change', function () { D = parseInt(this.value, 10); start(); });
 
   start();

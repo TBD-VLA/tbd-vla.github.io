@@ -526,7 +526,6 @@
 
   function buildSchedule() {
     var f = [];
-    f.push({ active: -1, decode: [], status: 'All action tokens masked' });
     for (var k = 0; k < nBlocks; k++) {
       var blockCells = [];
       for (var r = 0; r < D_A; r++)
@@ -535,6 +534,7 @@
       shuffle(blockCells);
       var total = blockCells.length;
       var steps = Math.min(N_D, total);
+
       // Spread tokens as evenly as possible, giving the extra (remainder)
       // tokens to the LATER steps so earlier steps decode fewer tokens
       // (e.g. 14 tokens over 4 steps -> 3, 3, 4, 4).
@@ -577,11 +577,20 @@
       cell.style.background = colorFor();
     });
 
+    // Highlight the masked cells of the FIRST block that still has masked
+    // tokens. While a block decodes, that is the block itself; the instant it
+    // is fully decoded, the next (fully masked) block lights up entirely — so
+    // the whole upcoming block shows its orange "to be decoded" outline with
+    // no idle, unhighlighted frame between blocks.
     if (f.active >= 0) {
-      for (var r = 0; r < D_A; r++) {
-        for (var c = f.active * M; c < (f.active + 1) * M; c++) {
-          var cc = cellAt(r, c);
-          if (cc.classList.contains('masked')) cc.classList.add('in-active');
+      for (var bk = 0; bk < nBlocks; bk++) {
+        var blockMasked = [];
+        for (var r = 0; r < D_A; r++)
+          for (var c = bk * M; c < (bk + 1) * M; c++)
+            if (cellAt(r, c).classList.contains('masked')) blockMasked.push(cellAt(r, c));
+        if (blockMasked.length) {
+          blockMasked.forEach(function (cc) { cc.classList.add('in-active'); });
+          break;   // only the first unfinished block
         }
       }
     }

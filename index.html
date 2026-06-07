@@ -526,6 +526,9 @@
 
   function buildSchedule() {
     var f = [];
+    // Block 0 has no preceding block whose completion would light it up, so
+    // give it one initial frame that highlights the whole block before decoding.
+    f.push({ active: 0, decode: [], status: 'Decoding Block 0' });
     for (var k = 0; k < nBlocks; k++) {
       var blockCells = [];
       for (var r = 0; r < D_A; r++)

@@ -86,7 +86,7 @@
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>Paper (Coming Soon)</span>
                 </a>
               </span>
               <span class="link-block">
@@ -95,27 +95,27 @@
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv</span>
+                  <span>arXiv (Coming Soon)</span>
                 </a>
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="#"
+                <a href="https://github.com/TBD-VLA/lerobot"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
-                  <span>Code (Coming Soon)</span>
+                  <span>Code</span>
                   </a>
               </span>
               <!-- Hugging Face Weights Link. -->
               <span class="link-block">
-                <a href="#"
+                <a href="https://huggingface.co/collections/sean1295/tbd-vla"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       🤗
                   </span>
-                  <span>Weights (Coming Soon)</span>
+                  <span>Weights</span>
                   </a>
               </span>
             </div>
@@ -848,7 +848,7 @@
   var TOPPAD = 26;
   var MAXROWS = 3;
   var LEFTANCHOR = 4 * UNIT;   // x where the current chunk's start aligns (cells/track)
-  var NOW_OFFSET = -4;          // shift ONLY the red "now" line by this many px (+ right, - left)
+  var NOW_OFFSET = -3;          // shift ONLY the red "now" line by this many px (+ right, - left)
   var N_CYCLES = 5;
 
   var H_A = 8;   // rollout horizon (# new actions executed per cycle = stride)
@@ -1264,8 +1264,79 @@
       <span class="tbd-second">second-best</span> underlined.
     </p>
   </div>
-</section>
+  <div class="container is-max-desktop">
+    <div class="content has-text-justified">
+      <p></p>
+    </div>
+    <div class="columns is-centered">
+      <div class="column  has-text-centered">
+        <h4 class="title is-4">Rollouts</h4>
+      </div>
+    </div>
+    <div class="columns is-vcentered interpolation-panel">
+      <div class="column  has-text-centered">
+        <h5><b>Pick Coke Can</b><br>Visual matching</h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/pick_coke_can_vm.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column  has-text-centered">
+        <h5><b>Move Near</b><br>Visual matching</h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/move_near_vm.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column  has-text-centered">
+        <h5><b>Open Drawer</b><br>Visual matching</h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/open_drawer_vm.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column  has-text-centered">
+        <h5><b>Close Drawer</b><br>Visual matching</h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/close_drawer_vm.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="columns is-vcentered interpolation-panel">
+      <div class="column  has-text-centered">
+        <h5><b>Pick Coke Can</b><br>Variant aggregation</h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/pick_coke_can_va.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column  has-text-centered">
+        <h5><b>Move Near</b><br>Variant aggregation</h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/move_near_va.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column  has-text-centered">
+        <h5><b>Open Drawer</b><br>Variant aggregation</h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/open_drawer_va.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column  has-text-centered">
+        <h5><b>Close Drawer</b><br>Variant aggregation</h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/close_drawer_va.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <br>
+</div>
 
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -1293,9 +1364,64 @@
         settings, demonstrating the effectiveness of temporal modeling with block diffusion.
       </p>
     </div>
+    <div class="columns is-centered">
+      <div class="column  has-text-centered">
+        <h4 class="title is-4">In-distribution Rollouts</h4>
+      </div>
+    </div>
+    <div class="columns is-vcentered interpolation-panel">
+      <div class="column  has-text-centered">
+        <h5><b>Everything in Bin</b><br><i>instruction: "move everything to basket"</i></h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/pick_3_toys_id.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column  has-text-centered">
+        <h5><b>Load Toaster</b><br><i>instruction: "put the bread into the toaster"</i></h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/toaster_id.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column  has-text-centered">
+        <h5><b>Transfer Liquid</b><br><i>instruction: "transfer the liquid"</i></h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/dropper_id.mp4" type="video/mp4">
+        </video>
+      </div>
+  </div>
+
+    <div class="columns is-centered">
+      <div class="column  has-text-centered">
+        <h4 class="title is-4">Out-of-distribution Rollouts</h4>
+      </div>
+    </div>
+    <div class="columns is-vcentered interpolation-panel">
+      <div class="column  has-text-centered">
+        <h5><b>Transfer Liquid (Camera)</b><br><i>instruction: "transfer the liquid."</i></h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/dropper_bgd.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column  has-text-centered">
+        <h5><b>Transfer Liquid (Background & Lighting)</b><br><i>instruction: "transfer the Coke."</i></h5>
+        <h5 style="font-size:30px;">✅</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/dropper_lang.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column  has-text-centered">
+        <h5><b>Transfer Liquid (Camera)</b><br><i>instruction: "transfer the liquid."</i></h5>
+        <h5 style="font-size:30px;">❌</h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="static/videos/dropper_cam.mp4" type="video/mp4">
+        </video>
+      </div>
   </div>
 </section>
-
 
 <section class="section">
   <div class="container is-max-desktop">

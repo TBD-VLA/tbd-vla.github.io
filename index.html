@@ -622,7 +622,7 @@
 
 
 <!-- ============================== REAL-TIME CHUNKING ANIMATION ============================== -->
-<section class="section">
+<section class="section" id="real-time-chunking">
   <div class="container is-max-desktop">
     <h2 class="title is-3">Real-Time Chunking</h2>
     <div class="content has-text-justified">
@@ -1166,21 +1166,13 @@
 
     <div class="content has-text-justified" style="margin-top: 1.5rem;">
       <p>
-        TBD-VLA achieves <b>SOTA results on LIBERO at 97.7% average success rate</b>. On
-        <b>LIBERO-Plus</b>, which applies controlled perturbations (object layout, viewpoint, robot
-        state, language, lighting, background, sensor noise), TBD-VLA reaches <b>83.0% average success
-        rate</b>, outperforming the second-best method by <b>15.1%</b>.
+        TBD-VLA achieves <b>SOTA results on LIBERO at 97.7% average success rate</b>.
       </p>
     </div>
 
-    <div class="columns is-centered">
-      <div class="column is-half">
-        <div class="content has-text-centered">
-          <img src="./static/images/liberoplus.png" alt="LIBERO-Plus results" width="70.4%">
-          <p class="table-caption">Zero-Shot robustness across LIBERO-Plus perturbation scenarios.</p>
-        </div>
-      </div>
-      <div class="column is-half">
+    <!-- Real-Time Chunking, with its subplot alongside -->
+    <div class="columns is-vcentered" style="margin-top: 0.5rem;">
+      <div class="column is-5">
         <div class="content has-text-centered">
           <img src="./static/images/RTC_sim.png" alt="RTC vs latency" width="80%">
           <p class="table-caption">
@@ -1189,14 +1181,55 @@
           </p>
         </div>
       </div>
+      <div class="column is-7">
+        <div class="content has-text-justified">
+          <p>
+            <b>Real-Time Chunking under latency.</b> Under an inference delay of 4 simulation steps,
+            TBD-VLA with RTC retains a <b>93.2% success rate</b> &mdash; 3.4% higher than
+            &pi;<sub>0.5</sub> with RTC. Without RTC, performance degrades to 72.3% under the same
+            latency, demonstrating the effectiveness of asynchronous inference enabled by TBD-VLA's
+            temporal in-painting. See the visualization in the <a href="#real-time-chunking">Real-Time Chunking</a> section.
+          </p>
+        </div>
+      </div>
     </div>
 
-    <div class="content has-text-justified">
+    <!-- LIBERO-Plus: plot above the table -->
+    <h2 class="title is-4" style="margin-top: 1.5rem;">LIBERO-Plus</h2>
+    <div class="content has-text-centered">
+      <img src="./static/images/liberoplus.png" alt="LIBERO-Plus results" width="45%">
+      <p class="table-caption"><b>Zero-shot</b> robustness across LIBERO-Plus perturbation scenarios.</p>
+    </div>
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable tbd-table">
+        <thead>
+          <tr>
+            <th class="is-left">Model</th>
+            <th>Camera</th><th>Robot</th><th>Language</th><th>Light</th>
+            <th>Background</th><th>Noise</th><th>Layout</th><th>Avg</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="is-left">OpenVLA-OFT</td><td>55.6</td><td>21.7</td><td class="tbd-best">81.0</td><td class="tbd-second">92.7</td><td class="tbd-second">91.0</td><td>78.6</td><td>68.7</td><td>67.9</td></tr>
+          <tr><td class="is-left">UniVLA</td><td>1.8</td><td class="tbd-second">46.2</td><td>69.6</td><td>69.0</td><td>81.0</td><td>21.2</td><td>31.9</td><td>42.9</td></tr>
+          <tr><td class="is-left">&pi;<sub>0</sub>-Fast</td><td class="tbd-second">65.1</td><td>21.6</td><td>61.0</td><td>73.2</td><td>73.2</td><td>74.4</td><td>68.8</td><td>61.6</td></tr>
+          <tr><td class="is-left">&pi;<sub>0</sub></td><td>13.8</td><td>6.0</td><td>58.8</td><td>85.0</td><td>81.4</td><td class="tbd-second">79.0</td><td>68.9</td><td>53.6</td></tr>
+          <tr><td class="is-left">RIPT-VLA</td><td>55.2</td><td>31.2</td><td class="tbd-second">77.6</td><td>88.4</td><td class="tbd-best">91.6</td><td>73.5</td><td class="tbd-second">74.2</td><td class="tbd-second">68.4</td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA</b></td><td class="tbd-best">87.8</td><td class="tbd-best">60.4</td><td>77.4</td><td class="tbd-best">95.8</td><td>88.8</td><td class="tbd-best">89.9</td><td class="tbd-best">84.4</td><td class="tbd-best">83.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-caption has-text-centered">
+      <b>Zero-shot</b> success rates (%) on LIBERO-Plus across the seven perturbation factors. <b>Best</b> per
+      column in bold; <span class="tbd-second">second-best</span> underlined. Baselines use the official numbers from LIBERO-Plus.
+    </p>
+
+    <div class="content has-text-justified" style="margin-top: 1rem;">
       <p>
-        <b>Real-Time Chunking under latency.</b> Under an inference delay of 4 simulation steps,
-        TBD-VLA with RTC retains a <b>93.2% success rate</b> &mdash; 3.4% higher than &pi;<sub>0.5</sub>
-        with RTC. Without RTC, performance degrades to 72.3% under the same latency, demonstrating the
-        effectiveness of asynchronous inference enabled by TBD-VLA's temporal in-painting.
+        On <b>LIBERO-Plus</b>, which applies controlled perturbations (object layout, camera viewpoint,
+        robot initial state, language instruction, lighting, background texture, and sensor noise),
+        TBD-VLA reaches <b>83.5% average success rate</b>, outperforming the second-best method by
+        <b>15.1%</b>.
       </p>
     </div>
   </div>

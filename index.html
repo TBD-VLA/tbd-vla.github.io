@@ -643,8 +643,7 @@
         <b>asynchronously</b> using Real-Time Chunking (RTC). The tail of the previously generated chunk &mdash; the actions covering the latency window
         &mdash; is <b>frozen and reused as an in-painting prefix</b> for the next chunk. Each cycle the
         model denoises a prediction length of <b><i>H<sub>a</sub>&nbsp;+&nbsp;d</i></b> timesteps: the
-        first <i>d</i> are the frozen in-painting prefix (spanning one or more whole blocks plus a
-        partial block when <i>d&nbsp;&geq;&nbsp;m</i>), and the remaining <b><i>H<sub>a</sub></i></b>
+        first <i>d</i> are the frozen in-painting prefix, and the remaining <b><i>H<sub>a</sub></i></b>
         (the rollout horizon) are newly generated and then executed. This aligns well with TBD-VLA's
         masked block-diffusion objective, which is trained to complete action blocks from partial
         context, yielding temporally coherent actions despite latency.

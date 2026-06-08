@@ -682,6 +682,7 @@
         <div id="rtc-track" class="rtc-track"></div>
         <div class="rtc-now"><span class="rtc-now-label">now</span></div>
       </div>
+      <div class="rtc-axislabel">timestep &#8594;</div>
 
       <div class="bd-footer">
         <div id="rtc-status" class="bd-status">&nbsp;</div>
@@ -818,6 +819,15 @@
     font-size: 0.68rem;
     font-weight: 700;
     color: #ef4444;
+  }
+  .rtc-axislabel {
+    min-width: 640px;
+    text-align: center;
+    margin-top: 4px;
+    font-size: 0.78rem;
+    font-style: italic;
+    color: #64748b;
+    letter-spacing: 0.03em;
   }
   .rtc-ruler { position: absolute; }
   .rtc-tick {
@@ -1133,16 +1143,16 @@
           <tr><td class="is-left">OpenVLA-OFT</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Parallel</td><td class="tbd-best">0.031</td></tr>
           <tr><td class="is-left">MolmoAct</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Autoregressive</td><td>5.633</td></tr>
           <tr><td class="is-left">&pi;<sub>0</sub>-FAST</td><td>3B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Autoregressive</td><td>0.767</td></tr>
-          <tr><td class="is-left">Discrete Diffusion VLA</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Discrete Diffusion</td><td>0.069</td></tr>
+          <tr><td class="is-left">Discrete Diffusion VLA</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Discrete Diffusion</td><td class="tbd-second">0.069</td></tr>
           <tr><td class="is-left">VLA-0</td><td>3B</td><td><span class="tbd-sym tbd-warn">&#9650;</span></td><td>Autoregressive</td><td>1.980</td></tr>
-          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA</b></td><td><b>2B</b></td><td><span class="tbd-sym tbd-good">&#10003;</span></td><td><b>Block Discrete Diffusion</b></td><td>0.117</td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA (<i>H<sub>a</sub></i>=12)</b></td><td><b>2B</b></td><td><span class="tbd-sym tbd-good">&#10003;</span></td><td><b>Block Discrete Diffusion</b></td><td>0.117</td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA (<i>H<sub>a</sub></i>=8)</b></td><td><b>2B</b></td><td><span class="tbd-sym tbd-good">&#10003;</span></td><td><b>Block Discrete Diffusion</b></td><td>0.087</td></tr>
         </tbody>
       </table>
     </div>
     <p class="table-caption has-text-centered">
       Comparison of VLA models by size, temporal autoregression (AR), decoding strategy, and action
-      generation latency in the LIBERO environment. VLA-0 is autoregressive in text strings.
-    </p>
+      generation latency in the LIBERO environment. VLA-0 is autoregressive in text strings. The latency of TBD-VLA scales with the rollout horizon <i>H<sub>a</sub></i>. TBD-VLA lags behind only two methods: OpenVLA-OFT and Discrete Diffusion VLA, both of which use purely parallel decoding without autoregression.    </p>
   </div>
 </section>
 

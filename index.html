@@ -1143,10 +1143,10 @@
           <tr><td class="is-left">OpenVLA-OFT</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Parallel</td><td class="tbd-best">0.031</td><td class="tbd-best">258.06</td></tr>
           <tr><td class="is-left">MolmoAct</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Autoregressive</td><td>5.633</td><td>1.42</td></tr>
           <tr><td class="is-left">&pi;<sub>0</sub>-FAST</td><td>3B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Autoregressive</td><td>0.767</td><td>13.04</td></tr>
-          <tr><td class="is-left">Discrete Diffusion VLA</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Discrete Diffusion</td><td class="tbd-second">0.069</td><td class="tbd-second">115.94</td></tr>
+          <tr><td class="is-left">Discrete Diffusion VLA</td><td>7B</td><td><span class="tbd-sym tbd-bad">&#10007;</span></td><td>Discrete Diffusion</td><td class="tbd-second">0.069</td><td>115.94</td></tr>
           <tr><td class="is-left">VLA-0</td><td>3B</td><td><span class="tbd-sym tbd-warn">&#9650;</span></td><td>Autoregressive</td><td>1.980</td><td>0.51</td></tr>
-          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA (<i>H<sub>a</sub></i>=12)</b></td><td><b>2B</b></td><td><span class="tbd-sym tbd-good">&#10003;</span></td><td><b>Block Discrete Diffusion</b></td><td>0.117</td><td>102.56</td></tr>
-          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA (<i>H<sub>a</sub></i>=8)</b></td><td><b>2B</b></td><td><span class="tbd-sym tbd-good">&#10003;</span></td><td><b>Block Discrete Diffusion</b></td><td>0.087</td><td>91.95</td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA (<i>H<sub>a</sub></i>=12)</b></td><td><b>2B</b></td><td><span class="tbd-sym tbd-good">&#10003;</span></td><td><b>Block Discrete Diffusion</b></td><td>0.095</td><td class="tbd-second">126.32</td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b>TBD-VLA (<i>H<sub>a</sub></i>=8)</b></td><td><b>2B</b></td><td><span class="tbd-sym tbd-good">&#10003;</span></td><td><b>Block Discrete Diffusion</b></td><td>0.070</td><td>114.29</td></tr>
         </tbody>
       </table>
     </div  class="content has-text-justified">
@@ -1540,18 +1540,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td class="is-left"><i>m</i>=1, <i>n<sub>d</sub></i>=2, Expectation</td><td>84.6 <span class="tbd-delta tbd-bad">(&minus;4.1)</span></td><td>0.223 <span class="tbd-delta tbd-bad">(+0.137)</span></td><td>16 <span class="tbd-delta tbd-bad">(+12)</span></td></tr>
-          <tr><td class="is-left"><i>m</i>=16, <i>n<sub>d</sub></i>=2, Expectation</td><td>84.0 <span class="tbd-delta tbd-bad">(&minus;4.7)</span></td><td class="tbd-second">0.061 <span class="tbd-delta tbd-good">(&minus;0.025)</span></td><td class="tbd-best">2 <span class="tbd-delta tbd-good">(&minus;2)</span></td></tr>
-          <tr><td class="is-left"><i>m</i>=4, <i>n<sub>d</sub></i>=1, Expectation</td><td class="tbd-second">85.7 <span class="tbd-delta tbd-bad">(&minus;3.0)</span></td><td class="tbd-best">0.060 <span class="tbd-delta tbd-good">(&minus;0.026)</span></td><td class="tbd-best">2 <span class="tbd-delta tbd-good">(&minus;2)</span></td></tr>
-          <tr><td class="is-left"><i>m</i>=4, <i>n<sub>d</sub></i>=2, Argmax</td><td>81.6 <span class="tbd-delta tbd-bad">(&minus;7.1)</span></td><td>0.086 <span class="tbd-delta tbd-neu">(0.000)</span></td><td>4 <span class="tbd-delta tbd-neu">(0)</span></td></tr>
-          <tr style="background-color:#eef4fc;"><td class="is-left"><b><i>m</i>=4, <i>n<sub>d</sub></i>=2, Expectation</b></td><td class="tbd-best">88.7</td><td>0.086</td><td>4</td></tr>
+          <tr><td class="is-left"><i>m</i>=1, <i>n<sub>d</sub></i>=2, Expectation</td><td>84.6 <span class="tbd-delta tbd-bad">(&minus;4.1)</span></td><td>0.172 <span class="tbd-delta tbd-bad">(+0.102)</span></td><td>16 <span class="tbd-delta tbd-bad">(+12)</span></td></tr>
+          <tr><td class="is-left"><i>m</i>=16, <i>n<sub>d</sub></i>=2, Expectation</td><td>84.0 <span class="tbd-delta tbd-bad">(&minus;4.7)</span></td><td class="tbd-second">0.063 <span class="tbd-delta tbd-good">(&minus;0.007)</span></td><td class="tbd-best">2 <span class="tbd-delta tbd-good">(&minus;2)</span></td></tr>
+          <tr><td class="is-left"><i>m</i>=4, <i>n<sub>d</sub></i>=1, Expectation</td><td class="tbd-second">85.7 <span class="tbd-delta tbd-bad">(&minus;3.0)</span></td><td class="tbd-best">0.045 <span class="tbd-delta tbd-good">(&minus;0.025)</span></td><td class="tbd-best">2 <span class="tbd-delta tbd-good">(&minus;2)</span></td></tr>
+          <tr><td class="is-left"><i>m</i>=4, <i>n<sub>d</sub></i>=2, Argmax</td><td>81.6 <span class="tbd-delta tbd-bad">(&minus;7.1)</span></td><td>0.070 <span class="tbd-delta tbd-neu">(0.000)</span></td><td>4 <span class="tbd-delta tbd-neu">(0)</span></td></tr>
+          <tr style="background-color:#eef4fc;"><td class="is-left"><b><i>m</i>=4, <i>n<sub>d</sub></i>=2, Expectation</b></td><td class="tbd-best">88.7</td><td>0.070</td><td>4</td></tr>
         </tbody>
       </table>
     </div>
     <p class="table-caption has-text-centered">
       <b>SimplerEnv Google Robot</b> success rate, inference time, and VLM forward passes across temporal
       block size <i>m</i>, per-block diffusion steps <i>n<sub>d</sub></i>, and action sampling method.
-      Measured on a single NVIDIA RTX A40 GPU.
+      VLM forward passes are computed as &lceil;<i>H<sub>a</sub></i>/<i>m</i>&rceil; &middot; <i>n<sub>d</sub></i>,
+      where <i>H<sub>a</sub></i>=8. Inference time is measured on a single NVIDIA RTX A40 GPU.
     </p>
 
     <div class="table-container" style="margin-top: 1.5rem;">
@@ -1568,10 +1569,10 @@
         <tbody>
           <tr>
             <td class="is-left">Inference Speed (s)</td>
-            <td>0.185</td>
-            <td>0.125 <span class="tbd-delta tbd-good">&darr; (&minus;0.060)</span></td>
-            <td>0.113 <span class="tbd-delta tbd-good">&darr; (&minus;0.012)</span></td>
-            <td>0.086 <span class="tbd-delta tbd-good">&darr; (&minus;0.027)</span></td>
+            <td>0.450</td>
+            <td>0.243 <span class="tbd-delta tbd-good">&darr; (&minus;0.207)</span></td>
+            <td>0.113 <span class="tbd-delta tbd-good">&darr; (&minus;0.130)</span></td>
+            <td>0.070 <span class="tbd-delta tbd-good">&darr; (&minus;0.043)</span></td>
           </tr>
         </tbody>
       </table>

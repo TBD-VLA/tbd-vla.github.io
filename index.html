@@ -220,7 +220,7 @@
       decoding:</p>
       <ul>
         <li><b>Decoding as needed.</b> Only the blocks required for execution are generated, reducing
-        the number of denoising steps.</li>
+        the number of total VLM forward passes.</li>
         <li><b>Prefix KV cache.</b> Visual/prompt tokens and previously generated blocks are cached,
         avoiding redundant computation across denoising steps.</li>
         <li><b>Expectation sampling.</b> Each scalar action component is decoded from the full
